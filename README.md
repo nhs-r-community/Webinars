@@ -9,29 +9,31 @@
 
 This repository contains material from the NHS-R Community Webinars.
 
-Each folder contains a session:
+Each folder contains a
+session:
 
 ### Day1
 
-| Date       | Session Name              |   Presenter    | Folder |
-| ---------- | :------------------------ | :------------: | -----: |
-| 19/02/2020 | Database Connections in R |  Chris Mainey  |        |
-| 18/03/2020 |                           |  Tom Jemmett   |        |
-| 22/04/2020 |                           |  Chris Beeley  |        |
-| 20/05/2020 |                           | Emma Vestesson |        |
-| 17/06/2020 |                           |                |        |
-| 15/07/2020 |                           |                |        |
-| 19/08/2020 |                           |                |        |
-| 16/09/2020 |                           |                |        |
-| 21/10/2020 |                           |                |        |
-| 18/11/2020 |                           |                |        |
+| Date       | Session Name              |   Presenter    |                                                                                                            Folder |
+| ---------- | :------------------------ | :------------: | ----------------------------------------------------------------------------------------------------------------: |
+| 19/02/2020 | Database Connections in R |  Chris Mainey  | [Database\_connections\_in\_R](https://github.com/nhs-r-community/Webinars/tree/master/Database_connections_in_R) |
+| 18/03/2020 |                           |  Tom Jemmett   |                                                                                                                   |
+| 22/04/2020 |                           |  Chris Beeley  |                                                                                                                   |
+| 20/05/2020 |                           | Emma Vestesson |                                                                                                                   |
+| 17/06/2020 |                           |                |                                                                                                                   |
+| 15/07/2020 |                           |                |                                                                                                                   |
+| 19/08/2020 |                           |                |                                                                                                                   |
+| 16/09/2020 |                           |                |                                                                                                                   |
+| 21/10/2020 |                           |                |                                                                                                                   |
+| 18/11/2020 |                           |                |                                                                                                                   |
 
-  - Using your own machine: You can download zip files of each workshop,
-    or if you are familiar with Git and GitHub, you can clone the
-    repository. Follow the links in the table above to the relevant
-    workshops.
+# Accessing Material
 
-If you are unsure about your setup, or unable to access the material on
-your own machine, please use the RStudio Cloud method.
+If you are used to using Git and GitHub, you can clone this repository
+by cliciking on the green button.
+
+If you are unfamiliar with Git and GitHub, you can download zip files
+instead of cloning the repository, but clicking on the green button and
+selecting ‘Download zip file’ instead.
 
 <br>
