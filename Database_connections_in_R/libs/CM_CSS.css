@@ -53,10 +53,12 @@ h1, h2, h3 {
 }
 .remark-code {
   font-size: 0.8em;
+  background: #E0D5B7
 }
 .remark-inline-code {
   font-size: 1em;
   color: #23395b;
+  background: #f8f8f8
     
     
 }
@@ -76,7 +78,7 @@ strong{color:#23395b;}
     padding: 0px 4px;
     font-size: 0.8em;
   }
-  
+
   .footnote {
     
     position: absolute;

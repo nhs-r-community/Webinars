@@ -33,20 +33,101 @@ RODBC_connection <- odbcDriverConnect(paste('driver={SQL Server};server=',
 
 
 
-<br><br><br><br><br><br>
+<br><br><br><br><br>
 # Database connections in R
+## 19/02/20
 
 <br>
 
+.pull-left[
 __Chris Mainey__ 
+<br>
 
+<span style="font-size:17px;">Senior Statistical Intelligence Analyst
+<br>
+Healthcare Evaluation Data (HED)
+<br>
+University Hospitals Birmingham NHS FT</span>
+<br><br>
 <a href="mailto:chris.mainey@uhb.nhs.uk"> chris.mainey@uhb.nhs.uk</a>
 
-<br><br>
-2019/06/20 (updated: `r Sys.Date()`)
-<br><br><br><br><br><br>
-<span style="font-size:14px !important;"> __&copy; Healthcare Evaluation Data (HED)__- part of Health Informatics, University Hospitals Birmingham NHS Foundation Trust.  
-<b>NOT TO BE REPUBLISHED OR DISTRIBUTED WITHOUT CONSENT</b> </span>
+]
+
+.pull-right[
+
+<img src='https://nhsrcommunity.com/wp-content/uploads/2018/02/logo.png' height="80" /></a>
+
+<img src='https://www.hed.nhs.uk/Info/images/landing-image-logo.png' height="80" /></a>
+
+]
+
+
+
+---
+
+# Introduction
+
++ Relational (and other) databases common in 'real world'.
++ Not always importing csv files into R!
++ Look at how to connect to them and use them, with `odbc` type connection.
+
+<br>
+
+--
+
+This session is adapted from HED's Introduction to R course:
+
++ Two day introduction course, public or onsite. __(24th - 25th March, 9th -10 June)__
+
+--
+
+<br>
+
++ We also offer other courses, including:
+ + Introduction to R Markdown - __26th Feb, Birmingham__
+ + Machine Learning methods in R __28th - 28th April__
+ + Regression Modelling in R - __22nd - 23rd September__
+ + R Essentials - __20th October__
+
+
+<br> 
+More info, or book at: https://www.hed.nhs.uk/Info/hed-courses.aspx
+ 
+---
+
+# SQL in one slide...
+
++ __S__tructured __Q__uery __L__anguage
++ Standard syntax (ANSI and ISO), but vendor specific dialects
+
+--
+
+Key elements:
++ __SELECT__: The data fields you want out of a table
++ __FROM__: The table (or tables, with joins) to query
++ __WHERE__: Filter criteria
++ __GROUP BY__: When using aggregates in SELECT, assigns group
+
+--
+
+```{SQL sql1, eval=FALSE}
+SELECT Name,
+       Age,
+       MSOA
+FROM Demographic
+WHERE Age > 17
+````
+
+--
+
+#### Joins:
+```{SQL sql2, eval=FALSE}
+SELECT tab1.AttendanceDate,
+       tab2.Name
+FROM PatientAttendances tab1 inner join
+     Demographics tab2 ON tab1.PatID = tab2.PatID
+```
+
 
 
 ---
@@ -56,28 +137,36 @@ __Chris Mainey__
 There are two common methods of connection, both of which use Open Database Connectivity (ODBC) drivers:
   
 1.  The `RODBC` package.
-2.  The `DBI` system, using `dplyr,` `dbplyr` and `odbc`.
+2.  The `DBI` system, `odbc` and also `dplyr` and `dbplyr`.
+
+--
 
 <br>
 + Both of these create a connection, using a 'connection string' 
+
+<br>
+
 + This can be used to create a connection object
-+ We can use the object to pull data into `R` or manipulate it in the database.
+
+<br>
+
+
++ We can use this object to manipulate or pull data into `R`.
 
 ---
   
 ## 1.  `RODBC`
   
 + This is the simpler of the two interfaces, and uses slightly older code.
-+ It can be used to connect to anything that uses Open Database Connectivity (ODBC).  
++ It can be used to connect to anything that uses ODBC.  
 <br>
   
-```{r ROBCIMport1, eval=FALSE, collapse=TRUE, include=FALSE}
+```{r ROBCIMport1, eval=FALSE, collapse=TRUE, include=TRUE}
 library("RODBC")
 
 #Connection string
-# e.g. with a server called "Cliff" and a database called "Richard" your string would be:
-
-RODBC_connection <- odbcDriverConnect('driver={SQL Server};server=Cliff;database=Richard;trusted_connection=true')
+# e.g. with a server called "Donald" and a database called "Duck" your string would be:
+RODBC_connection <- odbcDriverConnect('driver={SQL Server};server=Donald;database=Duck;trusted_connection=true')
 
 dt1 <- sqlFetch(channel=RODBC_connection, sqtable = "MyTable")
 
@@ -85,11 +174,13 @@ dt1 <- sqlFetch(channel=RODBC_connection, sqtable = "MyTable")
 
 ```{r RODBCImport2, collapse=TRUE}
 # Load data from SQL query
-dt2 <- sqlQuery(channel=RODBC_connection, query = "select TOP 10 * from MyTable")
-
+dt2 <- sqlQuery(  channel=RODBC_connection 
+                , query = "select TOP 5 * from MyTable")
 dt2
 
 ```
+
+
 
 ---
   
@@ -103,8 +194,11 @@ dt2
   
 ```{r RODBCExport1, eval=FALSE}
 
-sqlSave(channel = RODBC_connection, dat = dt2, tablename = "Mytable_version2"
-        , append = FALSE, safer = FALSE)
+sqlSave(  channel = RODBC_connection
+        , dat = dt2, 
+        , tablename = "Mytable_version2"
+        , append = FALSE
+        , safer = FALSE)
 
 ```
 
@@ -121,6 +215,11 @@ Remember to disconnect at the end of your session:
 odbcClose(RODBC_connection)
 ```
 
+--
+
+<br><br>
+
+### But RODBC isn't my first choice...
 
 ---
   
@@ -129,11 +228,11 @@ odbcClose(RODBC_connection)
 ## 2. `DBI` \ `dplyr`
   
 + `DBI` implements a common database interface in `R`.
-+ Can be used with different 'backend' drivers such as MySQL, SQL Server, SQLite, Oracle etc.
-+ Works with `tidyverse` functions, including `dplyr` verbs and the pipe `%>%`
++ Can be used with different 'back-end' drivers such as MySQL, SQL Server, SQLite, Oracle etc.
 + Faster than `RODBC` to import data
 + Can be used to work with data in the database, without importing it into `R`.
-+ `DBI` can be used on it's own, but can be combined with `dplyr`
++ `DBI` can be used on it's own, but can be combined with `dplyr`, `dbplyr` and use `%>%` to write SQL for you
+
 <br><br>
 
 
@@ -148,10 +247,10 @@ Requires a different connection string and a few more packages to use:
 + `odbc`- provides the odbc drivers, but you could use the functions below with other drivers instead.
 
 ```{r DBI1, message=FALSE, warning=FALSE}
+library(DBI)
+library(odbc)
 library(dplyr)
 library(dbplyr)
-library(odbc)
-library(DBI)
 
 DBI_Connection <- dbConnect(odbc(), 
                             driver = "SQL Server",
@@ -163,9 +262,46 @@ DBI_Connection <- dbConnect(odbc(),
 
 ---
   
+# Using SQL with DBI
+  
++ Can write an SQL query directly using the `dbSendQuery` function.
++ Executes the query on the _server-side_ only.
++ If you want the results back in `R`, you need to use `dbFetch` as well.
+
+```{r dplyrQuery, warning=FALSE, message=FALSE}
+
+SomeRecords <- dbFetch(dbSendQuery(DBI_Connection, "Select TOP 100 * from MyTable"))
+
+#or
+
+SomeRecords <- dbSendQuery(DBI_Connection, "Select TOP 100 * from MyTable") %>%
+  dbFetch()
+
+```
+
+---
+
+  
+# Writing to databases
+  
+You can also write back to a database using the `dbWriteTable` function.
++ For example:
++ Writing a new table current connection, called 'NewDatabaseTable'
++ Using the `R` `data.frame` called "MyTable_local" (that we created in the last section)
++ `append` and `overwrite` options
+
+```{r dplyrWrite, warning=FALSE, message=FALSE, eval=FALSE}
+
+dbWriteTable(DBI_Connection,"NewDatabaseTable", MyTable_local, overwrite=TRUE)
+
+```
+---
+
+
+  
 # Using tables in the database
   
-Now we can define a table as if it was part of our `R` workspace, using the connection object and the names of the table in the database. 
+Now we can define a table as if it was part of our `R` work-space, using the connection object and the names of the table in the database. 
 + Do this with `tbl`
 + `glimpse` is a useful function that shows you a summary
 <br><br>
@@ -200,43 +336,6 @@ MyTable %>%
 + `dplyr` can then be used to do fairly complex things in just a few lines.
 
 ---
-  
-# Example: 
-+ I'm filtering the data for 2015 and passing it directly into `ggplot2` (tomorrow's session)
-
-```{r DBIplot2, warning=FALSE, message=FALSE, fig.height=4, fig.width=5, fig.retina=2, fig.align = "center" }
-library(ggplot2)
-
-MyTable %>%
-  filter(year ==2015) %>%
-  ggplot(aes(y=events, x=factor(month), group=factor(month))) + 
-  geom_boxplot(fill = "dodgerblue2", alpha=0.6, )+
-  labs(title = "Monthly Distribution of Events", x="Month", y="Events")
-
-
-```
-
----
-  
-# Using SQL & returning data to `R` (1)
-  
-+ Can write an SQL query directly using the `dbSendQuery` function.
-+ Executes the query on the server-side only.
-+ If you want the results back in `R`, you need to use `dbFetch` as well.
-
-```{r dplyrQuery, warning=FALSE, message=FALSE}
-
-SomeRecords <- dbFetch(dbSendQuery(DBI_Connection, "Select TOP 100 * from MyTable"))
-
-#or
-
-SomeRecords <- dbSendQuery(DBI_Connection, "Select TOP 100 * from MyTable") %>%
-  dbFetch()
-
-```
-
----
-  
 # Using SQL & returning data to `R` (2)
 + May need to pull the data from the server into memory in `R` sometimes.
 + Can do this with `collect`
@@ -256,26 +355,22 @@ print(MyTable_local)
 ```
 
 ---
-  
-# Writing to databases
-  
-You can also write back to a database using the `dbWriteTable` function.
-+ For example:
-+ Writing a new table current connection, called 'NewDatabaseTable'
-+ Using the `R` `data.frame` called "MyTable_local" (that we created in the last section)
-+ `append` and `overwrite` options
 
-```{r dplyrWrite, warning=FALSE, message=FALSE, eval=FALSE}
+# Example: 
++ I'm filtering the data for 2015 and passing it directly into `ggplot2`
 
-dbWriteTable(DBI_Connection,"NewDatabaseTable", MyTable_local, overwrite=TRUE)
+```{r DBIplot2, warning=FALSE, message=FALSE, fig.height=4, fig.width=5, fig.align = "center"}
+library(ggplot2)
+
+MyTable %>%
+  filter(year ==2015) %>%
+  ggplot(aes(y=events, x=factor(month), group=factor(month))) + 
+  geom_boxplot(fill = "dodgerblue2", alpha=0.6, )+
+  labs(title = "Monthly Distribution of Events", x="Month", y="Events")
+
 
 ```
 
----
-class: middle, center
-
-# Exercise:
-### Follow the instructions in the Excerise file
 
 ---
 
@@ -285,11 +380,52 @@ class: middle, center
 | --------------|:------------------------------------------------------:|
 |dbConnect()    | Create a DBI connection object                         |
 |dbListTables() | List the tables on the connection                      |
-|dbListFields() | List the fileds for a given table on a given connection|
-|dbSendQuery()  | Send a query to eexecute on the server/connection      |
+|dbListFields() | List the fields for a given table on a given connection|
+|dbSendQuery()  | Send a query to execute on the server/connection      |
 |dbFetch()      | Fetch the results from the server/connection           |
 |dbWriteTable() | Write a table to the connection                        |
 |               |                                                        |
 |tbl()          | Set a table on the connection as a 'tibble' for `dplyr`|
 |glimpse()      | See a summary of the rows, data types and top rows     |
 
+
+---
+
+class: middle, center
+
+# Example script:
+
+---
+
+# Summary
+
++ You don't always want to import data to `R`, keeping it in database is a good idea for many reasons
+
++ `RODBC` is older, but useful interface
+
++ `DBI` is a newer, agnostic, system that works with many difference drivers/systems
+
++ Both require a connection string - You can use RStudio wizard for this too!
+
++ `DBI` has it's own syntax including `dbSendQuery` and `dbFetch` to retrieve results from SQL queries
+
++ `DBI` can also work with `dplyr` by adding `dbplyr` and declaring tables with `tbl`
+
+---
+class: middle
+
+# Thanks for your time!
+
+
+`r icon::fa("envelope", color=rgb(148, 198, 0, maxColorValue = 255))` <a href="mailto:chris.mainey@uhb.nhs.uk;" style="line-height:2;"> chris.mainey@uhb.nhs.uk </a>
+<br>
+`r icon::fa("globe", color=rgb(148, 198, 0, maxColorValue = 255))` <a href="http://www.hed.nhs.uk" style="line-height:2;">http://www.hed.nhs.uk</a>
+<br>
+`r icon::fa("twitter")` <a href="https://twitter.com/chrismainey?s=09" style="line-height:2;">@chrismainey</a>
+<br>
+`r icon::fa("github")` <a href="https://github.com/chrismainey)" style="line-height:2;">chrismainey</a>
+<br>
+`r icon::fa("globe")` <a href="http://www.mainard.co.uk" style="line-height:2;">http://www.mainard.co.uk</a>
+<br>
+<br>
+<img src= 'https://github.com/chrismainey/FunnelPlotR/raw/master/man/figures/logo.png' width=10% height=10% align="middle"> `FunnelPlotR`  `r icon::fa("box")`  now available on CRAN!

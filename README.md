@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# NHS-R Community Webinars <a href='https://nhsrcommunity.com/'><img src='https://nhsrcommunity.com/wp-content/uploads/2018/02/logo.png/' align="right" height="80" /></a>
+# NHS-R Community Webinars <a href='https://nhsrcommunity.com/'><img src='https://nhsrcommunity.com/wp-content/uploads/2018/02/logo.png' align="right" height="80" /></a>
 
 <!-- badges: start -->
 
@@ -9,8 +9,7 @@
 
 This repository contains material from the NHS-R Community Webinars.
 
-Each folder contains a
-session:
+Each folder contains a session:
 
 ### Day1
 

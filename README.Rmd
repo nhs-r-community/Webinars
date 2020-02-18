@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# NHS-R Community Webinars <a href='https://nhsrcommunity.com/'><img src='https://nhsrcommunity.com/wp-content/uploads/2018/02/logo.png/' align="right" height="80" /></a>
+# NHS-R Community Webinars <a href='https://nhsrcommunity.com/'><img src='https://nhsrcommunity.com/wp-content/uploads/2018/02/logo.png' align="right" height="80" /></a>
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -50,4 +50,8 @@ If you are unfamiliar with Git and GitHub, you can download zip files instead of
 
 
 <br>
+
+# Contributor Code of Conduct
+
+Contributors to this repository agree to abide by the NHS-R community Code of Conduct, available in this repository on this [link]().
 

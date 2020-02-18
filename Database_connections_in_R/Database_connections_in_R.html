@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Database Connections in R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Chris Mainey chris.mainey@uhb.nhs.uk" />
+    <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="libs\CM_CSS.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center
+
+
+
+
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+# Database connections in R
+## 19/02/20
+
+&lt;br&gt;
+
+.pull-left[
+__Chris Mainey__ 
+&lt;br&gt;
+
+&lt;span style="font-size:17px;"&gt;Senior Statistical Intelligence Analyst
+&lt;br&gt;
+Healthcare Evaluation Data (HED)
+&lt;br&gt;
+University Hospitals Birmingham NHS FT&lt;/span&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;a href="mailto:chris.mainey@uhb.nhs.uk"&gt; chris.mainey@uhb.nhs.uk&lt;/a&gt;
+
+]
+
+.pull-right[
+
+&lt;img src='https://nhsrcommunity.com/wp-content/uploads/2018/02/logo.png' height="80" /&gt;&lt;/a&gt;
+
+&lt;img src='https://www.hed.nhs.uk/Info/images/landing-image-logo.png' height="80" /&gt;&lt;/a&gt;
+
+]
+
+
+
+---
+
+# Introduction
+
++ Relational (and other) databases common in 'real world'.
++ Not always importing csv files into R!
++ Look at how to connect to them and use them, with `odbc` type connection.
+
+&lt;br&gt;
+
+--
+
+This session is adapted from HED's Introduction to R course:
+
++ Two day introduction course, public or onsite. __(24th - 25th March, 9th -10 June)__
+
+--
+
+&lt;br&gt;
+
++ We also offer other courses, including:
+ + Introduction to R Markdown - __26th Feb, Birmingham__
+ + Machine Learning methods in R __28th - 28th April__
+ + Regression Modelling in R - __22nd - 23rd September__
+ + R Essentials - __20th October__
+
+
+&lt;br&gt; 
+More info, or book at: https://www.hed.nhs.uk/Info/hed-courses.aspx
+ 
+---
+
+# SQL in one slide...
+
++ __S__tructured __Q__uery __L__anguage
++ Standard syntax (ANSI and ISO), but vendor specific dialects
+
+--
+
+Key elements:
++ __SELECT__: The data fields you want out of a table
++ __FROM__: The table (or tables, with joins) to query
++ __WHERE__: Filter criteria
++ __GROUP BY__: When using aggregates in SELECT, assigns group
+
+--
+
+
+```sql
+SELECT Name,
+       Age,
+       MSOA
+FROM Demographic
+WHERE Age &gt; 17
+```
+
+--
+
+#### Joins:
+
+```sql
+SELECT tab1.AttendanceDate,
+       tab2.Name
+FROM PatientAttendances tab1 inner join
+     Demographics tab2 ON tab1.PatID = tab2.PatID
+```
+
+
+
+---
+  
+# Two common methods
+  
+There are two common methods of connection, both of which use Open Database Connectivity (ODBC) drivers:
+  
+1.  The `RODBC` package.
+2.  The `DBI` system, `odbc` and also `dplyr` and `dbplyr`.
+
+--
+
+&lt;br&gt;
++ Both of these create a connection, using a 'connection string' 
+
+&lt;br&gt;
+
++ This can be used to create a connection object
+
+&lt;br&gt;
+
+
++ We can use this object to manipulate or pull data into `R`.
+
+---
+  
+## 1.  `RODBC`
+  
++ This is the simpler of the two interfaces, and uses slightly older code.
++ It can be used to connect to anything that uses ODBC.  
+&lt;br&gt;
+  
+
+```r
+library("RODBC")
+
+#Connection string
+# e.g. with a server called "Donald" and a database called "Duck" your string would be:
+RODBC_connection &lt;- odbcDriverConnect('driver={SQL Server};server=Donald;database=Duck;trusted_connection=true')
+
+dt1 &lt;- sqlFetch(channel=RODBC_connection, sqtable = "MyTable")
+
+```
+
+
+```r
+# Load data from SQL query
+dt2 &lt;- sqlQuery(  channel=RODBC_connection 
+                , query = "select TOP 5 * from MyTable")
+dt2
+##   id Org year month Category_A Category_B events
+## 1  2   A 2015     4      22476      21611    963
+## 2  3   B 2015     4      13415      13673    208
+## 3  4   C 2015     4       5872       6067    223
+## 4  5   D 2015     4       2571       3197    145
+## 5  6   E 2015     4       3380       3782    140
+```
+
+
+
+---
+  
+# What is going on here? 
+  
++ `trusted_connection=true` passes your windows credentials to the server
++ You can, instead, specify a username (`uid`) and a password (`pwd`)
+
+&lt;br&gt;&lt;br&gt;
++ You can also use `RODBC` to write back to database tables, choosing to append or not:
+  
+
+```r
+sqlSave(  channel = RODBC_connection
+        , dat = dt2, 
+        , tablename = "Mytable_version2"
+        , append = FALSE
+        , safer = FALSE)
+```
+
+---
+  
+# Other functions
+  
+There are lots of other functions included with `RODBC` to allow you to see structures etc.  The package vignette is a very helpful place to go for this, along with the help files.
+
+&lt;br&gt;&lt;br&gt;
+Remember to disconnect at the end of your session:
+  
+
+```r
+odbcClose(RODBC_connection)
+```
+
+--
+
+&lt;br&gt;&lt;br&gt;
+
+### But RODBC isn't my first choice...
+
+---
+  
+&lt;br&gt;
+  
+## 2. `DBI` \ `dplyr`
+  
++ `DBI` implements a common database interface in `R`.
++ Can be used with different 'back-end' drivers such as MySQL, SQL Server, SQLite, Oracle etc.
++ Faster than `RODBC` to import data
++ Can be used to work with data in the database, without importing it into `R`.
++ `DBI` can be used on it's own, but can be combined with `dplyr`, `dbplyr` and use `%&gt;%` to write SQL for you
+
+&lt;br&gt;&lt;br&gt;
+
+
+---
+
+# DBI connection
+
+Requires a different connection string and a few more packages to use:
++ `DBI` - a common Database Interface engine for use in `S` and `R` (see &lt;a href="https://cran.r-project.org/web/packages/DBI/vignettes/DBI-1.html"&gt;here&lt;/a&gt;)
++ `dplyr` - to make the `tbl` and use it, we'll work with `dplyr` syntax.
++ `dbplyr` - this add-on package allows translation from `dplyr` to SQL.
++ `odbc`- provides the odbc drivers, but you could use the functions below with other drivers instead.
+
+
+```r
+library(DBI)
+library(odbc)
+library(dplyr)
+library(dbplyr)
+
+DBI_Connection &lt;- dbConnect(odbc(), 
+                            driver = "SQL Server",
+                            server=Sys.getenv("SERVER"),
+                            database=Sys.getenv("DATABASE")
+)
+```
+
+---
+  
+# Using SQL with DBI
+  
++ Can write an SQL query directly using the `dbSendQuery` function.
++ Executes the query on the _server-side_ only.
++ If you want the results back in `R`, you need to use `dbFetch` as well.
+
+
+```r
+SomeRecords &lt;- dbFetch(dbSendQuery(DBI_Connection, "Select TOP 100 * from MyTable"))
+
+#or
+
+SomeRecords &lt;- dbSendQuery(DBI_Connection, "Select TOP 100 * from MyTable") %&gt;%
+  dbFetch()
+```
+
+---
+
+  
+# Writing to databases
+  
+You can also write back to a database using the `dbWriteTable` function.
++ For example:
++ Writing a new table current connection, called 'NewDatabaseTable'
++ Using the `R` `data.frame` called "MyTable_local" (that we created in the last section)
++ `append` and `overwrite` options
+
+
+```r
+dbWriteTable(DBI_Connection,"NewDatabaseTable", MyTable_local, overwrite=TRUE)
+```
+---
+
+
+  
+# Using tables in the database
+  
+Now we can define a table as if it was part of our `R` work-space, using the connection object and the names of the table in the database. 
++ Do this with `tbl`
++ `glimpse` is a useful function that shows you a summary
+&lt;br&gt;&lt;br&gt;
+
+```r
+MyTable&lt;-tbl(DBI_Connection, "MyTable")
+
+glimpse(MyTable)
+## Observations: ??
+## Variables: 7
+## Database: Microsoft SQL Server 14.00.3281[UHB\CSMY@LEE\AKUMA/ISIS]
+## $ id         &lt;int&gt; 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, ...
+## $ Org        &lt;chr&gt; "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "...
+## $ year       &lt;int&gt; 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 20...
+## $ month      &lt;int&gt; 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,...
+## $ Category_A &lt;dbl&gt; 22476, 13415, 5872, 2571, 3380, 10711, 6297, 7877, 6613,...
+## $ Category_B &lt;dbl&gt; 21611, 13673, 6067, 3197, 3782, 10161, 7137, 9114, 7402,...
+## $ events     &lt;int&gt; 963, 208, 223, 145, 140, 568, 216, 366, 321, 423, 276, 2...
+```
+
+
+---
+  
+# Constructing `dplyr` query
+  
++ We can then perform select or aggregate queries without translation.
++ Even though it returns results, the data are still in the database
+
+
+
+```r
+
+MyTable %&gt;%
+  filter(year ==2015) %&gt;%
+  group_by(month) %&gt;%
+  summarise(AvgEvents = mean(events),
+            MaxEvents = max(events),
+            N = n()) %&gt;%
+  arrange(month)
+## # Source:     lazy query [?? x 4]
+## # Database:   Microsoft SQL Server 14.00.3281[UHB\CSMY@LEE\AKUMA/ISIS]
+## # Ordered by: month
+##   month AvgEvents MaxEvents     N
+##   &lt;int&gt;     &lt;int&gt;     &lt;int&gt; &lt;int&gt;
+## 1     4       302       963    25
+## 2     5       318       944    25
+## 3     6       325      1002    25
+## 4     7       324       911    25
+## 5     8       305       960    25
+## 6     9       314       975    25
+```
+
+
++ `dplyr` can then be used to do fairly complex things in just a few lines.
+
+---
+# Using SQL &amp; returning data to `R` (2)
++ May need to pull the data from the server into memory in `R` sometimes.
++ Can do this with `collect`
+
+
+```r
+MyTable_local&lt;- MyTable %&gt;%
+  filter(year ==2015) %&gt;%
+  group_by(month) %&gt;%
+  summarise(AvgEvents = mean(events),
+            MaxEvents = max(events),
+            N = n()) %&gt;%
+  arrange(month) %&gt;%
+  collect()
+
+print(MyTable_local)
+```
+
+```
+## # A tibble: 6 x 4
+##   month AvgEvents MaxEvents     N
+##   &lt;int&gt;     &lt;int&gt;     &lt;int&gt; &lt;int&gt;
+## 1     4       302       963    25
+## 2     5       318       944    25
+## 3     6       325      1002    25
+## 4     7       324       911    25
+## 5     8       305       960    25
+## 6     9       314       975    25
+```
+
+---
+
+# Example: 
++ I'm filtering the data for 2015 and passing it directly into `ggplot2`
+
+
+```r
+library(ggplot2)
+
+MyTable %&gt;%
+  filter(year ==2015) %&gt;%
+  ggplot(aes(y=events, x=factor(month), group=factor(month))) + 
+  geom_boxplot(fill = "dodgerblue2", alpha=0.6, )+
+  labs(title = "Monthly Distribution of Events", x="Month", y="Events")
+```
+
+&lt;img src="Database_connections_in_R_files/figure-html/DBIplot2-1.png" width="360" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Useful DBI commands
+
+|Command        | Summary                                                |
+| --------------|:------------------------------------------------------:|
+|dbConnect()    | Create a DBI connection object                         |
+|dbListTables() | List the tables on the connection                      |
+|dbListFields() | List the fields for a given table on a given connection|
+|dbSendQuery()  | Send a query to execute on the server/connection      |
+|dbFetch()      | Fetch the results from the server/connection           |
+|dbWriteTable() | Write a table to the connection                        |
+|               |                                                        |
+|tbl()          | Set a table on the connection as a 'tibble' for `dplyr`|
+|glimpse()      | See a summary of the rows, data types and top rows     |
+
+
+---
+
+class: middle, center
+
+# Example script:
+
+---
+
+# Summary
+
++ You don't always want to import data to `R`, keeping it in database is a good idea for many reasons
+
++ `RODBC` is older, but useful interface
+
++ `DBI` is a newer, agnostic, system that works with many difference drivers/systems
+
++ Both require a connection string - You can use RStudio wizard for this too!
+
++ `DBI` has it's own syntax including `dbSendQuery` and `dbFetch` to retrieve results from SQL queries
+
++ `DBI` can also work with `dplyr` by adding `dbplyr` and declaring tables with `tbl`
+
+---
+class: middle
+
+# Thanks for your time!
+
+
+<i class="fas  fa-envelope " style="color:#94C600;"></i> &lt;a href="mailto:chris.mainey@uhb.nhs.uk;" style="line-height:2;"&gt; chris.mainey@uhb.nhs.uk &lt;/a&gt;
+&lt;br&gt;
+<i class="fas  fa-globe " style="color:#94C600;"></i> &lt;a href="http://www.hed.nhs.uk" style="line-height:2;"&gt;http://www.hed.nhs.uk&lt;/a&gt;
+&lt;br&gt;
+<i class="fab  fa-twitter "></i> &lt;a href="https://twitter.com/chrismainey?s=09" style="line-height:2;"&gt;@chrismainey&lt;/a&gt;
+&lt;br&gt;
+<i class="fab  fa-github "></i> &lt;a href="https://github.com/chrismainey)" style="line-height:2;"&gt;chrismainey&lt;/a&gt;
+&lt;br&gt;
+<i class="fas  fa-globe "></i> &lt;a href="http://www.mainard.co.uk" style="line-height:2;"&gt;http://www.mainard.co.uk&lt;/a&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;img src= 'https://github.com/chrismainey/FunnelPlotR/raw/master/man/figures/logo.png' width=10% height=10% align="middle"&gt; `FunnelPlotR`  <i class="fas  fa-box "></i>  now available on CRAN!
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
