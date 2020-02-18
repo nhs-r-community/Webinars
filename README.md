@@ -30,10 +30,10 @@ session:
 # Accessing Material
 
 If you are used to using Git and GitHub, you can clone this repository
-by cliciking on the green button.
+by clicking on the green button.
 
 If you are unfamiliar with Git and GitHub, you can download zip files
-instead of cloning the repository, but clicking on the green button and
-selecting ‘Download zip file’ instead.
+instead of cloning the repository, by clicking on the green button and
+selecting ‘Download ZIP’ instead.
 
 <br>
