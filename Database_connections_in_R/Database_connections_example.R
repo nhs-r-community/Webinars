@@ -1,4 +1,4 @@
-#Exercise 5: Database connections using DBI and dplyr
+#Database connections using DBI and dplyr
 
 #Load relevant packages, install them if you don't have them yet.
 #install.packages("RSQLite")
