@@ -29,31 +29,42 @@ rm(ae_attendances)
 
 
 # What tables do we have in our database?
-
+dbListTables(con)
 
 # We can list the fields in a table: 
 
-
+dbListFields(con,name = "ae_attends")
 
 
 # Lets get the distint values for the field "type"
 
-
+dbFetch(dbSendQuery(con, "Select distinct type from ae_attends"))
 
 
 # Lets count how many entries we have in each type
 
-
+dbFetch(
+  dbSendQuery(  con
+              , "Select type, count(*) as Count  
+                 from ae_attends
+                 group by type"
+              )
+  )
 
 
 ## Side point, the error message is an RSQLite thing.  You need to explicitly close the results, 
 # or it does it for you with the warning.  This is not a problem though.
 
 
-
 # Now lets see the entries for my organisations UHB / RRK, using a where clause
-
-
+dbFetch(
+  dbSendQuery(con
+              , "Select type, count(*) as Count  
+                 from ae_attends
+                 Where org_code = 'RRK'
+                 group by type"
+              )
+  )
 
 
 ##################################
@@ -63,37 +74,54 @@ rm(ae_attendances)
 # Now lets declare ae_attends as a tibble for use with dplyr. We'll call it 'ae' to avoid confusion
 # This will now be treated as an R data.frame/tibble, but it is still in the database
 
-
+ae<-tbl(con, "ae_attends")
 
 # Use glimpse to see the structure and data types
-
-
+ae %>%
+  glimpse()
 
 
 # Lets select just the org_code and attendances
-
-
+ae %>% 
+  select(org_code, attendances)
 
 
 # Lets replicate the SQL queries above, but using dplyr / dbplyr
 # Counts by all organisations
+ae %>%
+  group_by(type) %>%
+  summarise(Count = n())  
 
+ae %>%
+  group_by(type) %>%
+  count()
 
+ae %>%
+  group_by(type) %>%
+  tally()
 
 
 # How many of these relate to my organisation, UHB = 'RRK'
-
-
+ae %>%
+  filter(org_code =="RRK") %>%
+  group_by(type) %>%
+  count()
 
 
 # This is writing SQL for us.  We can see this using the show_query command
-
-
-
+ae %>%
+  filter(org_code =="RRK") %>%
+  group_by(type) %>%
+  count() %>%
+  show_query()
 
 # Now, if you need to pull the data into R you can add the collect function in
-
-
+RRK_data <-
+ae %>%
+  filter(org_code =="RRK") %>%
+  group_by(type) %>%
+  count() %>%
+  collect()
   
 
 

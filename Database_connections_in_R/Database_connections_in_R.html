@@ -60,7 +60,7 @@ University Hospitals Birmingham NHS FT&lt;/span&gt;
 
 This session is adapted from HED's Introduction to R course:
 
-+ Two day introduction course, public or onsite. __(24th - 25th March, 9th -10 June)__
++ Two day introduction course, public or onsite. __(24th - 25th March, 9th - 10th June)__
 
 --
 
@@ -68,7 +68,7 @@ This session is adapted from HED's Introduction to R course:
 
 + We also offer other courses, including:
  + Introduction to R Markdown - __26th Feb, Birmingham__
- + Machine Learning methods in R __28th - 28th April__
+ + Machine Learning methods in R __28th - 29th April__
  + Regression Modelling in R - __22nd - 23rd September__
  + R Essentials - __20th October__
 
@@ -155,7 +155,6 @@ library("RODBC")
 RODBC_connection &lt;- odbcDriverConnect('driver={SQL Server};server=Donald;database=Duck;trusted_connection=true')
 
 dt1 &lt;- sqlFetch(channel=RODBC_connection, sqtable = "MyTable")
-
 ```
 
 
@@ -278,12 +277,12 @@ SomeRecords &lt;- dbSendQuery(DBI_Connection, "Select TOP 100 * from MyTable") %
 You can also write back to a database using the `dbWriteTable` function.
 + For example:
 + Writing a new table current connection, called 'NewDatabaseTable'
-+ Using the `R` `data.frame` called "MyTable_local" (that we created in the last section)
++ Using the `R` `data.frame` called "data_frame_in_R"
 + `append` and `overwrite` options
 
 
 ```r
-dbWriteTable(DBI_Connection,"NewDatabaseTable", MyTable_local, overwrite=TRUE)
+dbWriteTable(DBI_Connection,"NewDatabaseTable", data_frame_in_R, overwrite=TRUE)
 ```
 ---
 
