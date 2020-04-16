@@ -30,7 +30,8 @@ ui <- fluidPage(
                                    leafletOutput("trustMap", height = 600, width = 500)
                             ),
                             column(width = 6, 
-                                   plotOutput("oneGraph")
+                                   plotOutput("oneGraph", hover = "plot_hover"),
+                                   textOutput("hoverDetails")
                             )
                         ))
             )
@@ -115,6 +116,31 @@ server <- function(input, output) {
             geom_line()
     })
     
+    output$hoverDetails <- renderText({
+        
+        req(input$trustMap_marker_click)
+        
+        trust_id <- input$trustMap_marker_click$id
+        
+        oneTrust <- ae_attendances %>% 
+            filter(org_code == trust_id) %>% 
+            group_by(period) %>% 
+            summarise(mean_attendance = mean(attendances))
+        
+        attendance <- nearPoints(oneTrust, input$plot_hover, 
+                                 "period", "mean_attendance", 
+                                 threshold = 10) %>% 
+            slice(1) %>% 
+            pull(mean_attendance)
+        
+        if(is.null(input$plot_hover)){
+            
+            "Please hover over a point for more information"
+        } else {
+            
+            paste0("Attendances: ", round(attendance, 0))
+        }
+    })
 }
 
 # Run the application 
