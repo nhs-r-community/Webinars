@@ -58,7 +58,7 @@ server <- function(input, output) {
     
     output$trustMap <- renderLeaflet({
         
-        ae_attendances %>%
+        filter_data() %>%
             leaflet() %>%
             addTiles() %>%
             setView(lng = -2, lat = 53, zoom = 7) %>%
@@ -73,7 +73,7 @@ server <- function(input, output) {
         
         trust_id <- input$trustMap_marker_click$id
         
-        trust_details <- ae_attendances %>% 
+        trust_details <- filter_data() %>% 
             filter(org_code == trust_id) %>% 
             arrange(desc(period)) %>% 
             slice(1)        
@@ -106,7 +106,7 @@ server <- function(input, output) {
         
         trust_id <- input$trustMap_marker_click$id
         
-        oneTrust <- ae_attendances %>% 
+        oneTrust <- filter_data() %>% 
             filter(org_code == trust_id)
         
         oneTrust %>% 
@@ -122,7 +122,7 @@ server <- function(input, output) {
         
         trust_id <- input$trustMap_marker_click$id
         
-        oneTrust <- ae_attendances %>% 
+        oneTrust <- filter_data() %>% 
             filter(org_code == trust_id) %>% 
             group_by(period) %>% 
             summarise(mean_attendance = mean(attendances))
