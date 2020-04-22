@@ -1,7 +1,7 @@
 ---
 title: "Shiny webinar"
 author: "Chris Beeley"
-date: "25/03/2020"
+date: "22/04/2020"
 output: ioslides_presentation
 runtime: shiny
 ---
@@ -18,6 +18,7 @@ knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
 ## What is Shiny?
 
 * Shiny is a web application programming framework
+* It's a way of building a web application out of pure R code
 * It's a big sack of HTML, JavaScript, and CSS, all called from R, basically
 * It requires no knowledge of HTML, JavaScript, or CSS, but if you have that knowledge it will do more
 
@@ -47,15 +48,16 @@ knitr::include_graphics("figures/geoexplorer.png")
 
 ```
 
+## And this and this and this
+
+[https://shiny.rstudio.com/gallery/](https://shiny.rstudio.com/gallery/)
+
 ## How does Shiny work?
 
 * Reactive programming
 * When the inputs change, the outputs change
 * Outputs *take a dependency on* inputs
 * The Bad Old Days
-* What you lose
-* E.g. CRUD is hard
-* You can control reactive dependencies (more later)
 
 ## The fundamentals
 
@@ -95,6 +97,8 @@ knitr::include_graphics("figures/geoexplorer.png")
 ## Let's browse some code
 
 * A two file application (which we'll make live)
+* And let's add a title
+- This is your first job on the forthcoming day long Shiny course
 
 ## UI- tabset panel
 
@@ -118,7 +122,7 @@ tabsetPanel(id = "tabset",
 
 conditionalPanel(
   condition = "input.tabset == 'graph'",
-  textInput("trustControl", "Enter Trust name")
+  selectInput("trustControl", "Enter Trust name")
 )
 
 ```
@@ -150,8 +154,8 @@ fluidRow(
 ## Reactive expressions
 
 - We'll look at some server code now starting with the use of a reactive expression
-- Reactive expressions are expressions that change when their inputs change
-- They enable you to maintain the data fetch/ clean code for several outputs in one place
+- "A reactive expression is an R expression that uses widget input and returns a value"
+- They enable you to maintain the code that fetches and/ or cleans your data for several outputs in one place
 - Crucially, they *cache* their results, which means that it's run once, for all the outputs, and only changes if its inputs change
 - Great for computationally intensive or bandwidth heavy data functions
 
@@ -167,7 +171,9 @@ node_df <- create_node_df(n = 5 ,
                           fontcolor = "black")
 
 edge_df <- data.frame("from" = c(1, 1, 2, 2),
-                      "to" = c(3, 4, 4, 5))
+                      "to" = c(3, 4, 4, 5),
+                      "penwidth" = 6,
+                      "color" = "black")
 
 i_graph_1 <-
   create_graph()
@@ -190,12 +196,12 @@ i_graph_3 %>% render_graph()
 
 ```
 
-## With reactive object
+## With reactive expression
 
 ```{r, echo = FALSE, warning = FALSE, eval = TRUE}
 
 node_dfR <- create_node_df(n = 6,
-                           label = c("Input 1", "Input 2", "Reactive object", "Output 1", 
+                           label = c("Input 1", "Input 2", "Reactive expression", "Output 1", 
                                      "Output 2", "Output 3"),
                            fontsize = 24,
                            fillcolor = c("green", "green", "blue", "red", "red", "red"),
@@ -287,15 +293,27 @@ output$graph <- renderPlot({
 
 ## Interacting with a Shiny plot
 
+* UI
+
+```{r}
+
+plotOutput("oneGraph", hover = "plot_hover")
+
+```
+
+* Server
+
 ```{r}
 
 output$clickDetails <- renderText({
   
   # ... get the data in the graph here and call it oneTrust
   
-  attendance <- nearPoints(oneTrust, input$plot_click, 
+  attendance <- nearPoints(oneTrust, input$plot_hover, 
                            "period", "mean_attendance", 
-                           threshold = 10)$mean_attendance
+                           threshold = 10) %>% 
+    slice(1) %>% 
+    pull(mean_attendance)
   
   paste0("Attendances: ", round(attendance, 0))
 })
@@ -344,12 +362,12 @@ knitr::include_graphics("figures/suce_dashboard.png")
 
 - Start simple
 - Make sure your code works outside of Shiny!
-- Use of cat()
+- Use of cat() (particularly cat(str(df))
 - Breakpoints and browser()
 - Run options(shiny.reactlog=TRUE)
-* Run
-* Press Ctrl+F3 for an interactive summary of reactive activity in your application
-* This has saved me more than once
+    * Run
+    * Press Ctrl+F3 for an interactive summary of reactive activity in your application
+    * This has saved me more than once
 
 ## Code structure
 
