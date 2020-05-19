@@ -1,0 +1,42 @@
+---
+title: "A&E Attendances"
+output: html_document
+params:
+  org_code: NULL
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(NHSRdatasets)
+
+df <- ae_attendances
+
+if (!is.null(params$org_code)) {
+  df <- filter(df, org_code == params$org_code)
+}
+
+df <- df %>%
+  group_by(period) %>%
+  summarise_at(vars(attendances:admissions), sum)
+```
+
+## `r params$org_code`
+
+### Attendances
+
+```{r}
+df %>%
+  ggplot(aes(period, attendances)) +
+  geom_line() +
+  geom_point()
+```
+
+### Breaches
+
+```{r}
+df %>%
+  ggplot(aes(period, breaches)) +
+  geom_line() +
+  geom_point()
+```
