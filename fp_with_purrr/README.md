@@ -1,6 +1,6 @@
 # Functional programming with Purrr
 
-Slides are in the file [fp_with_purrr.html](fp_with_purrr.html).
+Slides are in the file [fp_with_purrr.pdf](fp_with_purrr.pdf).
 
 Images used in this presentation have been copied from the book
 ["Advanced R"](https://adv-r.hadley.nz/) (H.Wickham). This book and it's images
