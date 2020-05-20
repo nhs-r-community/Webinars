@@ -1,4 +1,6 @@
 setwd("fp_with_purrr")
+library(tidyverse)
+library(NHSRdatasets)
 
 # first, let's have a look at the ae_attendances dataframe
 ae_attendances
