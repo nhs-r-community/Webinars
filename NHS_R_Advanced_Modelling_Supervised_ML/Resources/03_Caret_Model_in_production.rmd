@@ -1,0 +1,72 @@
+---
+title: "03 Caret Model - Production"
+author: "Gary Hutson - Head of Solutions and AI"
+date: "08/06/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(caret)
+library(caretEnsemble)
+library(mlbench)
+library(DMwR)
+library(klaR)
+library(magrittr)
+library(RSNNS)
+library(randomForest)
+library(xgboost)
+```
+
+## Load the ensemble model fits to make predictions on
+
+I would advise to always split out the training / evaluation side, save the model, pick the model back up, shape the data the same way as the training set, pass the new / production data through the model, make predictions and then save the final dataset with the preditions back in a BI tool, database or some other form of data store.
+
+Here I load in the model:
+```{r load_ml_model}
+load("Models/ML_Production_Model.rda")
+```
+
+## Use production data and pass through model to make predictions
+
+I am going to use a sample of the original training set to make these predictions. Here I am treating the original data as new unseen data. 
+
+However, in your systems this would be new real-time, hourly and minute datasets. Furthermore, the data structure you trained it on must match the live input data. Moreover, if new fields are added to the model, then you have to retrain and then run back through the training model. 
+
+```{r data_sample}
+# Here we will treat the original data as new data coming in to be classified and a probability to be predicted
+# to that class
+set.seed(123)
+prod_data <- dplyr::sample_n(dataset, size = 40) %>% 
+  dplyr::select(everything(), -Stranded.label)
+head(prod_data, 10)
+
+```
+
+A good way to test that the structure matches would be to implement a condition to check the ncols() and if it doesn't print a message back to say the structure is different. This shows that the structure is the same and the scaling has been undertaken on the relevant features.
+
+## Making predictions with unseen / production data
+
+```{r pred_data}
+class_predictions <- predict(ensemble, newdata = prod_data, type = "raw")
+prob_predictions <- predict(ensemble, newdata = prod_data, type = "prob")
+head(class_predictions, 10)
+
+```
+
+The two parameters <strong>raw</strong> and <strong>prob</strong> return the classification labels and the probability predictions of belonging to one class over another. 
+
+## Combine predictions with original data
+
+The predictions can then be combined with the production data to assign the relevant labels. Here it would be useful to know if a patient is likely to be a long waiter on the first day of their inpatient spell. The ML algorithm will learn patterns of similar patients and make a class estimate and probability estimate of belonging to that class. This has been utilised in practice in many tools I have already created, and allows the service to estimate caseloads of different strata of patients. 
+
+```{r combine_preds}
+prod_data %<>% 
+  cbind(class_predictions) 
+head(prod_data, 10)
+```
+
+## How often to retrain
+
+I would think that the patterns in a dataset like this do not change that often, so daily retraining would be a waste of resource and server time. However, it would be useful to train it weekly to pick up patterns. The model training part and frequency is the main concern for the ML pipeline. Additionally, local knowledge would be needed to make sure it is retrained in an effective and time sensitive matter. 

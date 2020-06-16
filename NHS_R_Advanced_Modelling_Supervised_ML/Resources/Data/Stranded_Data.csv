@@ -1,0 +1,769 @@
+Stranded.label,Age,Care.home.referral,MedicallySafe,HCOP,Weekend_arrival,Mental_Health_Care,Periods_of_previous_care
+Not Stranded,50,0,0,0,1,0,1
+Not Stranded,31,1,0,1,0,0,1
+Not Stranded,32,0,1,0,0,1,1
+Not Stranded,69,1,1,0,1,1,1
+Not Stranded,33,0,0,1,1,1,1
+Stranded,75,1,1,0,1,1,1
+Not Stranded,26,1,0,1,0,0,1
+Not Stranded,64,0,1,1,1,0,1
+Not Stranded,53,0,1,0,1,0,5
+Not Stranded,63,1,0,0,0,1,1
+Not Stranded,30,1,1,0,0,0,1
+Not Stranded,77,1,1,1,1,0,1
+Stranded,80,1,1,0,0,0,1
+Not Stranded,72,1,0,0,0,0,1
+Stranded,60,0,1,1,1,0,4
+Stranded,32,0,1,0,1,0,1
+Not Stranded,70,1,1,0,1,0,1
+Not Stranded,31,1,0,0,1,0,1
+Stranded,75,1,0,1,0,1,2
+Not Stranded,75,1,0,0,1,0,1
+Stranded,77,1,0,0,1,1,4
+Stranded,67,1,1,0,0,0,1
+Not Stranded,68,0,1,1,0,0,1
+Stranded,29,0,1,0,1,0,1
+Not Stranded,80,1,0,0,1,0,1
+Stranded,41,0,1,1,0,0,1
+Not Stranded,43,0,1,0,1,1,1
+Not Stranded,76,1,0,1,0,0,1
+Not Stranded,69,0,0,1,0,1,1
+Not Stranded,38,1,0,0,1,1,1
+Not Stranded,60,0,0,0,1,1,1
+Not Stranded,62,0,0,0,0,1,1
+Stranded,22,0,0,0,0,1,3
+Not Stranded,78,0,1,0,0,1,1
+Not Stranded,45,0,0,1,1,0,1
+Not Stranded,79,1,1,1,1,1,1
+Stranded,35,0,1,0,0,0,1
+Not Stranded,46,1,1,0,1,0,1
+Stranded,60,1,0,0,0,0,1
+Stranded,56,1,0,0,0,0,1
+Not Stranded,70,0,0,0,0,0,1
+Stranded,80,1,0,0,1,0,2
+Stranded,48,1,1,0,1,0,3
+Stranded,54,0,1,1,1,1,1
+Stranded,64,1,0,0,0,0,1
+Not Stranded,25,0,1,0,0,1,2
+Stranded,74,1,0,0,1,1,1
+Not Stranded,22,0,0,1,1,1,1
+Not Stranded,31,0,0,1,0,1,1
+Stranded,63,0,1,1,1,0,2
+Stranded,22,0,1,0,1,1,5
+Stranded,79,0,0,0,1,0,1
+Stranded,64,0,0,1,1,0,2
+Stranded,58,1,0,1,0,1,7
+Stranded,42,0,1,0,0,1,1
+Stranded,66,1,1,1,0,1,1
+Stranded,41,1,0,0,0,0,1
+Stranded,62,1,1,0,0,1,4
+Stranded,74,1,1,1,1,0,1
+Stranded,22,1,1,1,1,1,1
+Stranded,72,0,0,0,1,1,1
+Not Stranded,39,0,1,0,1,0,1
+Stranded,36,0,0,0,1,1,1
+Stranded,78,1,1,0,1,1,1
+Not Stranded,79,0,0,0,0,0,1
+Stranded,61,0,1,0,0,1,10
+Not Stranded,69,0,0,0,0,1,1
+Stranded,54,1,0,0,1,1,1
+Stranded,78,1,0,0,1,0,8
+Not Stranded,62,0,1,0,1,1,1
+Not Stranded,74,1,0,0,0,1,1
+Stranded,71,1,1,1,1,1,10
+Not Stranded,42,0,0,1,1,1,1
+Stranded,60,1,0,1,0,1,1
+Stranded,67,0,0,0,0,1,3
+Not Stranded,61,0,1,1,0,1,1
+Not Stranded,73,1,1,0,1,0,1
+Not Stranded,27,0,0,0,1,1,1
+Not Stranded,26,1,0,1,0,0,1
+Not Stranded,24,1,0,1,0,0,1
+Not Stranded,22,0,1,1,0,1,1
+Not Stranded,66,0,1,0,0,0,1
+Not Stranded,36,1,0,0,0,0,1
+Not Stranded,67,1,0,0,1,1,1
+Stranded,37,1,0,1,0,0,7
+Stranded,68,1,1,0,1,0,10
+Stranded,75,0,1,1,0,0,1
+Stranded,66,0,0,0,1,0,3
+Not Stranded,79,0,1,0,1,1,1
+Not Stranded,24,0,0,0,1,1,1
+Not Stranded,21,0,0,0,0,0,1
+Not Stranded,34,1,1,0,1,1,1
+Not Stranded,42,1,1,1,1,0,1
+Not Stranded,60,0,0,0,0,1,1
+Not Stranded,64,0,0,1,1,0,1
+Not Stranded,66,0,1,0,1,0,1
+Not Stranded,24,1,0,1,0,0,1
+Not Stranded,22,1,0,1,1,1,1
+Stranded,65,1,1,0,1,0,10
+Stranded,78,1,0,1,1,1,4
+Stranded,33,0,0,0,1,0,2
+Stranded,71,1,0,1,0,1,1
+Not Stranded,21,0,1,1,1,1,1
+Stranded,62,0,0,0,1,1,1
+Stranded,27,0,1,0,1,1,8
+Stranded,67,0,1,1,0,1,7
+Stranded,27,1,1,0,0,1,1
+Stranded,64,0,0,0,1,0,1
+Not Stranded,68,0,1,0,1,1,1
+Stranded,77,0,1,1,0,0,3
+Not Stranded,24,0,0,1,1,0,2
+Stranded,46,0,1,1,1,1,1
+Stranded,23,0,0,0,0,1,3
+Stranded,63,1,0,1,1,0,1
+Not Stranded,39,0,1,1,1,1,1
+Not Stranded,67,1,0,1,0,0,1
+Not Stranded,65,1,1,1,0,0,1
+Stranded,25,0,0,1,0,1,8
+Not Stranded,73,0,1,1,0,1,1
+Not Stranded,75,1,1,0,1,0,1
+Not Stranded,67,0,1,1,0,1,1
+Not Stranded,61,1,0,1,0,0,1
+Stranded,80,0,0,0,1,1,3
+Stranded,80,0,1,1,1,1,1
+Stranded,23,0,1,0,1,0,1
+Not Stranded,26,0,1,1,1,0,1
+Stranded,75,0,0,0,1,0,5
+Not Stranded,23,1,1,0,1,1,1
+Stranded,40,1,1,0,0,0,2
+Not Stranded,65,1,0,0,1,1,1
+Not Stranded,78,0,0,0,0,0,1
+Not Stranded,73,1,1,1,1,1,1
+Stranded,66,1,1,1,0,1,3
+Not Stranded,76,0,0,0,1,0,1
+Not Stranded,26,1,1,1,1,0,1
+Not Stranded,31,0,0,0,0,0,1
+Not Stranded,21,1,0,0,0,0,1
+Not Stranded,22,0,1,0,0,1,1
+Not Stranded,29,1,0,1,0,0,1
+Not Stranded,75,0,0,0,1,0,1
+Not Stranded,55,1,0,1,1,1,1
+Not Stranded,80,1,1,1,0,1,1
+Stranded,71,1,1,0,1,0,3
+Not Stranded,79,0,1,0,1,1,1
+Not Stranded,78,0,1,0,1,1,1
+Not Stranded,21,0,1,0,1,0,1
+Stranded,73,0,1,1,1,1,1
+Not Stranded,60,0,1,0,1,1,1
+Not Stranded,79,0,0,0,0,1,1
+Stranded,22,1,0,1,0,1,7
+Not Stranded,78,1,1,1,1,1,1
+Stranded,37,1,1,1,0,0,3
+Stranded,60,0,0,0,1,1,1
+Not Stranded,67,1,1,0,0,0,1
+Not Stranded,76,1,0,0,0,0,1
+Stranded,36,0,0,1,1,1,1
+Not Stranded,21,1,0,0,0,0,1
+Not Stranded,23,1,1,0,0,1,1
+Not Stranded,77,0,0,0,0,1,1
+Stranded,69,0,0,0,0,0,6
+Stranded,36,1,1,1,1,1,2
+Not Stranded,65,1,1,1,1,1,1
+Not Stranded,71,0,0,0,1,1,1
+Not Stranded,72,1,0,0,0,1,7
+Not Stranded,32,1,1,0,1,0,1
+Not Stranded,68,0,0,0,0,0,1
+Stranded,62,1,0,0,0,0,3
+Stranded,34,1,1,1,1,0,10
+Not Stranded,68,1,1,0,1,0,1
+Not Stranded,75,0,1,1,0,0,1
+Not Stranded,64,1,0,1,0,0,1
+Not Stranded,71,0,0,1,1,1,1
+Not Stranded,25,0,0,0,0,0,1
+Stranded,69,0,0,0,1,1,7
+Stranded,70,0,0,0,1,0,1
+Stranded,71,0,0,1,0,1,1
+Not Stranded,42,1,0,1,1,0,1
+Stranded,63,1,1,1,1,0,3
+Not Stranded,76,0,1,1,0,1,1
+Stranded,37,1,0,0,1,0,1
+Not Stranded,32,0,0,0,0,1,1
+Not Stranded,69,0,1,0,0,1,1
+Not Stranded,62,1,1,1,0,0,1
+Stranded,67,1,0,1,0,0,1
+Stranded,40,0,0,1,0,1,1
+Not Stranded,76,1,1,0,1,0,1
+Stranded,76,0,1,1,1,0,1
+Stranded,33,0,1,0,0,1,10
+Stranded,60,1,0,1,1,0,1
+Not Stranded,25,1,0,0,0,1,1
+Stranded,21,0,1,1,0,0,1
+Stranded,40,0,0,0,1,1,3
+Not Stranded,77,1,0,1,1,1,1
+Not Stranded,40,1,1,1,1,0,1
+Not Stranded,42,1,1,0,0,1,1
+Not Stranded,67,0,1,0,1,1,1
+Not Stranded,61,0,0,0,1,1,2
+Not Stranded,23,0,1,0,1,0,1
+Not Stranded,77,0,0,0,1,0,1
+Not Stranded,76,1,0,0,0,1,1
+Stranded,21,1,1,1,0,1,3
+Stranded,78,0,0,1,1,0,1
+Not Stranded,32,0,0,0,0,0,1
+Not Stranded,64,1,0,1,1,1,1
+Not Stranded,69,1,0,0,1,0,1
+Stranded,66,1,0,0,1,0,5
+Stranded,80,1,0,1,1,1,1
+Not Stranded,52,1,0,1,0,1,1
+Not Stranded,21,1,0,0,0,1,1
+Not Stranded,74,0,0,1,0,0,1
+Stranded,76,0,0,1,0,0,6
+Stranded,60,1,1,0,1,0,1
+Not Stranded,60,1,1,1,1,0,1
+Stranded,73,1,0,1,0,1,4
+Stranded,71,0,1,1,1,1,1
+Stranded,38,1,1,0,1,1,2
+Not Stranded,63,0,1,1,1,0,1
+Not Stranded,32,1,1,1,0,1,1
+Stranded,32,0,1,0,1,0,2
+Not Stranded,41,0,0,1,0,1,1
+Not Stranded,65,1,0,0,1,0,1
+Stranded,66,0,0,1,0,0,1
+Stranded,64,0,0,1,0,0,1
+Stranded,63,0,0,1,1,1,1
+Stranded,26,1,1,0,1,1,2
+Not Stranded,22,1,1,0,1,0,1
+Stranded,69,1,0,0,1,1,1
+Stranded,24,0,0,1,1,0,1
+Not Stranded,31,0,1,1,1,0,1
+Stranded,80,0,1,1,0,0,1
+Stranded,63,0,1,1,1,1,1
+Stranded,46,1,0,0,0,1,2
+Not Stranded,22,1,0,1,0,0,1
+Stranded,73,0,0,1,0,1,1
+Not Stranded,63,0,0,1,0,0,1
+Not Stranded,74,0,1,0,1,1,1
+Stranded,51,0,1,1,0,1,10
+Stranded,77,1,1,0,0,0,4
+Stranded,32,0,1,1,0,1,10
+Stranded,27,0,1,0,0,0,2
+Not Stranded,62,0,1,0,1,1,1
+Not Stranded,71,0,0,1,1,1,1
+Not Stranded,22,1,0,1,1,1,1
+Not Stranded,65,0,1,1,0,0,1
+Not Stranded,29,1,1,0,0,0,1
+Not Stranded,49,1,1,1,1,0,1
+Stranded,41,1,0,1,0,1,1
+Stranded,80,1,0,1,0,1,1
+Not Stranded,34,1,0,1,1,1,1
+Not Stranded,23,1,1,1,1,1,1
+Not Stranded,64,0,0,0,1,0,1
+Stranded,67,1,1,1,1,0,3
+Not Stranded,24,0,1,1,1,0,3
+Stranded,25,0,0,1,1,0,3
+Stranded,67,0,0,0,1,0,1
+Stranded,21,0,1,1,1,1,1
+Not Stranded,30,0,0,1,1,0,1
+Not Stranded,71,0,1,1,0,1,1
+Not Stranded,67,0,0,1,1,1,1
+Not Stranded,80,1,1,0,0,1,1
+Stranded,34,1,1,1,0,0,3
+Stranded,27,1,0,0,1,0,5
+Stranded,24,1,0,0,0,1,1
+Stranded,75,1,1,1,1,1,1
+Stranded,65,1,0,0,0,0,3
+Not Stranded,75,1,1,0,0,0,1
+Stranded,25,1,0,0,0,1,2
+Stranded,24,0,1,1,0,0,1
+Stranded,21,0,1,1,1,0,8
+Not Stranded,74,1,0,1,0,1,1
+Stranded,38,0,1,1,0,1,2
+Not Stranded,21,0,0,1,1,1,1
+Stranded,40,0,0,1,0,0,1
+Stranded,69,1,0,1,0,0,1
+Not Stranded,75,0,0,1,0,0,1
+Not Stranded,74,0,1,0,0,1,1
+Not Stranded,29,0,1,0,1,0,1
+Not Stranded,79,1,1,0,0,0,1
+Not Stranded,57,0,0,1,0,1,1
+Stranded,22,1,0,0,0,0,8
+Not Stranded,28,1,0,0,1,0,1
+Not Stranded,66,0,0,0,1,0,1
+Stranded,71,0,0,1,1,0,1
+Stranded,74,1,0,0,1,0,1
+Stranded,77,1,1,1,1,1,2
+Stranded,71,1,1,1,0,1,3
+Stranded,63,0,0,1,0,0,10
+Not Stranded,72,1,1,0,1,0,1
+Stranded,26,1,0,1,1,1,1
+Stranded,33,0,0,1,1,1,4
+Not Stranded,21,1,0,0,0,1,1
+Not Stranded,25,0,0,1,0,1,1
+Stranded,31,1,0,1,1,1,1
+Stranded,24,0,1,1,0,0,1
+Not Stranded,62,1,1,1,0,0,1
+Stranded,76,1,0,1,1,0,1
+Not Stranded,72,0,1,1,1,1,1
+Not Stranded,24,1,0,1,1,1,1
+Not Stranded,67,0,1,0,0,0,1
+Stranded,58,0,1,0,0,0,2
+Stranded,30,0,1,0,0,1,1
+Not Stranded,66,1,0,1,1,0,1
+Stranded,65,0,1,1,0,1,10
+Not Stranded,69,1,1,1,0,1,1
+Stranded,37,0,0,0,0,1,1
+Stranded,63,1,1,1,1,1,4
+Not Stranded,79,1,1,1,1,1,1
+Not Stranded,60,1,0,1,1,0,1
+Stranded,25,0,1,0,1,1,4
+Not Stranded,78,1,1,0,1,0,1
+Not Stranded,41,1,1,1,0,0,1
+Not Stranded,22,0,1,0,0,0,1
+Stranded,27,0,0,1,0,0,1
+Not Stranded,25,1,1,1,1,0,1
+Not Stranded,43,0,0,1,0,1,1
+Not Stranded,78,0,1,1,0,0,1
+Stranded,30,0,1,0,0,1,1
+Stranded,74,1,1,1,1,0,1
+Not Stranded,28,1,0,1,1,0,1
+Not Stranded,69,1,1,0,0,1,1
+Stranded,31,1,0,1,1,0,6
+Not Stranded,62,1,0,0,1,0,1
+Not Stranded,67,1,1,0,0,0,1
+Stranded,43,1,0,1,0,1,1
+Not Stranded,64,1,1,1,1,0,1
+Not Stranded,75,0,0,0,1,1,1
+Stranded,62,1,1,0,1,0,1
+Not Stranded,73,1,0,0,1,1,1
+Stranded,23,1,0,1,0,1,1
+Stranded,77,1,1,1,1,1,1
+Stranded,46,0,0,0,1,0,1
+Not Stranded,77,1,1,1,0,1,2
+Not Stranded,76,0,0,1,1,1,1
+Stranded,44,0,0,0,1,1,1
+Stranded,79,0,0,0,0,1,2
+Not Stranded,71,1,1,1,1,0,1
+Stranded,44,1,1,1,1,0,1
+Not Stranded,62,1,1,1,1,0,1
+Not Stranded,33,1,1,1,1,0,1
+Stranded,41,0,1,0,0,0,1
+Stranded,71,1,1,0,1,1,1
+Not Stranded,63,0,0,0,1,1,1
+Not Stranded,22,1,1,0,0,0,1
+Not Stranded,33,0,1,1,1,0,1
+Stranded,64,0,1,1,0,1,3
+Not Stranded,78,0,1,1,1,0,1
+Not Stranded,22,0,1,1,1,1,1
+Not Stranded,23,0,0,0,0,0,1
+Stranded,26,0,0,1,0,1,1
+Stranded,37,1,1,0,0,1,1
+Not Stranded,67,1,1,1,1,0,1
+Not Stranded,30,0,0,0,0,0,1
+Not Stranded,80,0,1,0,1,0,1
+Stranded,24,0,0,0,0,0,4
+Not Stranded,21,0,0,1,1,0,1
+Not Stranded,63,0,0,1,0,1,1
+Stranded,28,0,0,1,0,1,3
+Stranded,76,0,1,0,0,0,8
+Stranded,63,0,0,1,1,1,3
+Stranded,63,1,0,1,0,0,3
+Stranded,75,0,0,1,0,0,10
+Stranded,63,1,1,1,1,0,4
+Not Stranded,65,1,0,0,1,0,1
+Not Stranded,67,0,0,0,1,0,1
+Not Stranded,68,0,0,0,0,1,1
+Not Stranded,30,1,1,1,0,0,1
+Stranded,29,0,1,0,1,0,7
+Stranded,21,0,0,0,0,1,3
+Not Stranded,65,1,0,0,0,1,1
+Not Stranded,61,0,1,1,1,1,1
+Not Stranded,25,1,0,1,1,0,1
+Not Stranded,21,0,1,0,1,0,1
+Not Stranded,21,1,1,1,1,0,1
+Not Stranded,68,1,1,0,1,1,1
+Not Stranded,28,1,1,0,0,1,1
+Not Stranded,58,1,0,1,0,1,1
+Not Stranded,76,0,1,0,0,0,1
+Not Stranded,77,1,0,0,1,0,1
+Not Stranded,32,0,0,1,0,1,1
+Not Stranded,70,0,1,0,1,0,1
+Not Stranded,63,0,0,1,0,1,1
+Stranded,22,1,0,1,0,1,4
+Not Stranded,69,1,0,0,1,0,1
+Not Stranded,75,1,1,0,0,1,1
+Not Stranded,25,1,0,0,1,0,1
+Not Stranded,80,0,1,1,1,0,3
+Stranded,35,1,1,0,0,1,1
+Not Stranded,67,0,0,1,1,1,1
+Not Stranded,71,1,0,1,0,1,1
+Not Stranded,60,1,1,1,0,1,1
+Not Stranded,42,1,0,1,1,1,1
+Stranded,73,1,1,0,1,1,1
+Not Stranded,68,0,1,0,1,0,1
+Not Stranded,79,0,1,1,0,0,1
+Not Stranded,31,0,0,0,1,0,1
+Not Stranded,25,1,0,1,1,0,1
+Not Stranded,75,0,1,0,1,0,1
+Not Stranded,73,0,0,1,1,1,1
+Not Stranded,80,0,0,1,0,1,1
+Not Stranded,25,1,0,1,0,0,1
+Stranded,60,1,0,0,0,1,8
+Not Stranded,65,1,1,1,0,1,1
+Not Stranded,75,0,1,1,1,0,1
+Not Stranded,65,1,0,1,1,1,1
+Not Stranded,70,1,1,0,1,1,1
+Not Stranded,26,1,0,0,1,0,1
+Not Stranded,46,1,1,0,1,1,1
+Not Stranded,25,0,1,0,1,0,1
+Not Stranded,39,1,1,0,1,0,1
+Not Stranded,28,0,0,1,1,1,1
+Not Stranded,28,0,0,1,1,1,1
+Not Stranded,25,1,1,0,0,0,1
+Stranded,22,1,1,1,0,0,1
+Not Stranded,21,1,0,0,0,0,1
+Stranded,21,0,1,1,1,1,1
+Not Stranded,62,1,0,1,0,1,1
+Stranded,22,1,1,0,0,1,1
+Not Stranded,76,1,1,0,0,1,1
+Not Stranded,67,0,0,0,0,1,2
+Not Stranded,78,0,1,0,0,1,1
+Not Stranded,26,0,1,0,0,1,1
+Stranded,21,1,1,1,0,1,1
+Not Stranded,79,0,0,1,0,0,1
+Not Stranded,21,0,1,0,1,1,1
+Not Stranded,36,1,1,1,0,0,1
+Stranded,31,1,1,1,1,0,1
+Not Stranded,25,1,0,1,0,1,1
+Stranded,69,1,1,0,0,1,1
+Not Stranded,26,1,0,0,1,0,1
+Not Stranded,43,0,0,0,0,1,1
+Not Stranded,63,1,0,1,1,1,1
+Not Stranded,80,0,0,0,1,1,1
+Not Stranded,70,1,0,1,1,1,1
+Not Stranded,72,1,0,1,1,1,1
+Not Stranded,63,1,0,0,1,0,1
+Stranded,29,1,1,0,0,1,1
+Stranded,71,1,0,0,1,1,1
+Not Stranded,28,0,1,0,1,0,1
+Not Stranded,21,0,0,1,1,1,1
+Not Stranded,31,0,0,1,0,1,1
+Stranded,41,0,1,0,1,0,1
+Not Stranded,67,1,0,1,1,1,1
+Not Stranded,75,1,0,0,0,0,1
+Not Stranded,75,1,1,1,0,0,1
+Not Stranded,30,1,1,1,1,1,1
+Not Stranded,80,0,0,1,0,0,1
+Not Stranded,28,1,1,0,0,0,1
+Not Stranded,26,0,1,0,0,1,1
+Not Stranded,79,1,0,0,1,0,1
+Stranded,26,0,0,0,0,1,1
+Not Stranded,23,0,0,1,0,1,1
+Not Stranded,23,1,0,1,0,0,1
+Not Stranded,76,0,0,0,1,1,1
+Stranded,64,1,1,1,0,1,1
+Not Stranded,67,0,1,1,1,1,1
+Stranded,76,1,1,0,0,1,2
+Stranded,62,1,1,0,1,0,1
+Stranded,69,1,0,1,1,0,1
+Not Stranded,75,1,0,0,0,1,1
+Not Stranded,81,0,0,0,0,1,1
+Not Stranded,64,0,0,1,0,1,1
+Not Stranded,26,0,1,0,0,1,1
+Not Stranded,39,1,1,0,1,0,1
+Not Stranded,37,1,1,1,1,1,1
+Not Stranded,65,0,0,0,0,0,1
+Stranded,21,1,1,0,0,0,3
+Stranded,22,1,0,0,1,0,1
+Stranded,71,1,1,0,0,0,2
+Not Stranded,38,0,1,0,0,0,1
+Not Stranded,27,1,1,0,0,0,1
+Not Stranded,28,1,1,0,0,1,1
+Not Stranded,80,1,1,1,0,1,1
+Not Stranded,72,0,1,0,1,1,1
+Not Stranded,69,0,1,1,0,0,1
+Not Stranded,74,1,0,1,1,1,1
+Not Stranded,65,1,1,0,1,0,1
+Not Stranded,72,0,0,0,1,0,1
+Not Stranded,31,1,0,0,0,0,1
+Not Stranded,63,0,0,1,0,0,1
+Stranded,67,0,0,0,0,0,1
+Not Stranded,35,1,1,1,0,0,1
+Not Stranded,29,1,0,0,1,1,1
+Stranded,28,0,0,1,0,0,10
+Stranded,60,1,0,1,0,0,1
+Not Stranded,69,0,0,1,1,1,1
+Not Stranded,24,1,0,1,0,1,1
+Not Stranded,21,0,1,1,1,0,1
+Stranded,80,0,1,1,0,1,5
+Stranded,60,1,0,0,1,0,1
+Stranded,75,1,0,0,1,1,1
+Not Stranded,61,0,0,1,0,0,1
+Stranded,74,0,0,0,1,0,1
+Not Stranded,75,1,1,1,1,1,1
+Stranded,67,0,0,0,1,0,2
+Not Stranded,22,0,1,0,0,0,1
+Not Stranded,66,1,0,1,0,0,1
+Not Stranded,76,0,1,1,1,0,1
+Not Stranded,63,0,0,0,1,0,1
+Not Stranded,68,0,1,0,1,0,1
+Not Stranded,39,0,0,1,1,1,1
+Not Stranded,80,0,0,1,1,1,1
+Not Stranded,65,1,0,1,0,1,1
+Not Stranded,41,1,1,0,1,0,1
+Not Stranded,41,1,1,1,0,0,1
+Not Stranded,70,0,1,0,1,0,1
+Not Stranded,77,1,0,1,1,0,1
+Stranded,35,0,0,0,0,0,7
+Not Stranded,61,1,1,0,1,0,1
+Not Stranded,21,0,0,1,1,0,1
+Not Stranded,64,1,1,1,1,0,1
+Not Stranded,72,1,1,1,1,0,1
+Not Stranded,76,1,1,1,0,1,1
+Not Stranded,71,0,1,1,1,1,1
+Not Stranded,22,0,1,1,0,1,1
+Stranded,61,0,0,1,1,0,2
+Stranded,66,0,1,0,1,0,1
+Not Stranded,74,0,1,0,0,0,1
+Not Stranded,77,0,0,0,0,1,1
+Not Stranded,41,0,0,0,1,1,1
+Stranded,60,1,0,1,0,0,1
+Not Stranded,79,1,1,1,0,1,1
+Not Stranded,78,0,1,1,1,0,1
+Stranded,26,1,0,0,1,1,1
+Stranded,45,0,0,0,0,0,1
+Not Stranded,24,0,1,1,0,1,1
+Not Stranded,70,1,0,1,0,0,1
+Not Stranded,21,1,1,0,1,1,1
+Not Stranded,74,0,0,0,0,1,1
+Not Stranded,76,1,0,0,0,1,1
+Not Stranded,31,1,1,0,0,0,1
+Stranded,22,0,0,1,0,0,1
+Not Stranded,24,1,0,0,0,0,1
+Not Stranded,69,1,1,0,0,0,1
+Not Stranded,31,0,1,1,0,0,1
+Not Stranded,73,0,0,1,0,1,1
+Not Stranded,63,0,0,1,1,0,1
+Not Stranded,46,1,0,1,0,0,1
+Not Stranded,73,1,1,1,0,1,1
+Not Stranded,23,1,0,0,1,1,1
+Not Stranded,32,1,0,1,1,0,1
+Not Stranded,43,1,0,1,1,1,1
+Not Stranded,27,0,0,1,0,1,1
+Not Stranded,62,0,1,1,0,0,1
+Not Stranded,73,0,1,1,0,1,1
+Not Stranded,29,0,1,1,1,0,1
+Not Stranded,72,0,1,1,1,0,1
+Stranded,53,0,1,0,0,1,1
+Not Stranded,28,0,1,1,0,0,1
+Not Stranded,50,0,1,1,0,1,1
+Stranded,76,0,1,0,1,0,2
+Not Stranded,21,1,0,0,0,1,1
+Not Stranded,25,1,1,1,0,0,1
+Not Stranded,72,0,1,1,1,0,1
+Not Stranded,23,1,1,1,1,1,2
+Not Stranded,68,0,1,1,1,1,1
+Not Stranded,37,1,1,1,1,1,1
+Not Stranded,79,1,0,1,0,1,1
+Not Stranded,58,1,0,0,0,1,1
+Not Stranded,42,0,1,1,1,0,1
+Not Stranded,35,1,0,0,1,1,1
+Not Stranded,54,0,1,1,1,1,1
+Not Stranded,61,1,0,1,1,1,1
+Not Stranded,24,0,1,1,0,1,1
+Not Stranded,68,1,0,0,1,1,1
+Not Stranded,77,1,0,0,1,1,1
+Stranded,66,1,0,1,1,0,1
+Not Stranded,21,1,0,0,0,1,1
+Not Stranded,71,1,1,1,1,0,1
+Stranded,37,1,1,1,1,1,2
+Stranded,69,0,1,0,1,1,1
+Stranded,39,1,0,0,0,0,1
+Stranded,76,0,1,1,0,0,2
+Not Stranded,67,1,0,1,1,1,1
+Not Stranded,22,0,0,1,0,1,1
+Stranded,23,0,0,0,1,0,1
+Not Stranded,63,1,0,0,1,0,1
+Not Stranded,35,1,0,1,0,1,1
+Not Stranded,62,0,1,0,1,1,1
+Not Stranded,36,0,0,0,0,1,1
+Not Stranded,62,1,0,0,1,1,1
+Not Stranded,76,0,0,1,0,1,1
+Stranded,80,1,1,1,0,0,1
+Stranded,79,0,1,0,0,0,1
+Not Stranded,42,0,0,0,0,1,1
+Not Stranded,52,1,0,1,1,1,1
+Not Stranded,22,1,1,0,0,0,1
+Stranded,68,0,0,0,1,1,1
+Not Stranded,65,1,1,1,1,0,1
+Stranded,52,1,1,1,0,1,1
+Not Stranded,25,1,1,1,0,1,1
+Stranded,68,1,0,1,1,1,1
+Stranded,80,1,0,1,0,1,1
+Stranded,44,1,1,0,0,1,1
+Not Stranded,63,1,1,0,1,0,1
+Stranded,77,1,1,0,1,1,1
+Not Stranded,77,0,0,0,0,1,1
+Not Stranded,60,0,1,0,1,0,1
+Not Stranded,21,0,1,0,0,1,1
+Not Stranded,38,0,0,1,0,1,1
+Not Stranded,26,1,0,0,1,0,1
+Not Stranded,67,0,0,0,0,1,1
+Not Stranded,66,1,0,1,0,0,1
+Not Stranded,30,1,0,0,0,1,1
+Stranded,54,1,0,0,0,1,1
+Stranded,65,0,1,0,1,0,2
+Stranded,63,0,0,0,0,1,3
+Not Stranded,60,0,0,0,1,1,1
+Not Stranded,25,0,1,1,1,1,1
+Stranded,27,0,1,1,0,0,1
+Not Stranded,70,1,0,0,1,0,1
+Stranded,24,0,1,1,0,0,2
+Stranded,36,0,0,1,1,0,1
+Stranded,66,1,0,1,0,0,10
+Not Stranded,26,1,1,0,0,0,1
+Not Stranded,50,1,0,1,0,0,1
+Not Stranded,27,1,0,0,1,1,1
+Not Stranded,66,1,0,1,1,1,1
+Not Stranded,23,1,1,1,1,1,1
+Not Stranded,50,1,0,1,1,0,1
+Not Stranded,63,1,0,0,1,0,1
+Not Stranded,28,1,0,0,1,0,1
+Not Stranded,28,1,0,1,0,1,1
+Not Stranded,45,1,1,1,1,0,1
+Not Stranded,62,0,1,1,1,1,1
+Not Stranded,21,0,0,0,1,0,1
+Not Stranded,29,0,1,1,0,0,1
+Stranded,69,1,1,1,1,1,3
+Not Stranded,70,1,1,1,0,0,1
+Not Stranded,45,1,0,1,0,0,1
+Not Stranded,78,1,1,0,0,0,1
+Not Stranded,34,1,0,1,0,0,1
+Not Stranded,63,1,0,1,0,1,1
+Not Stranded,68,1,1,0,1,0,1
+Stranded,62,1,0,1,1,0,1
+Not Stranded,31,0,0,1,1,0,1
+Not Stranded,38,1,1,0,1,1,1
+Stranded,48,0,1,0,1,0,3
+Not Stranded,72,1,0,0,0,0,1
+Not Stranded,32,1,0,1,0,1,1
+Not Stranded,66,1,0,0,1,1,1
+Not Stranded,71,1,1,0,0,1,1
+Not Stranded,79,1,0,1,1,1,1
+Not Stranded,50,0,0,0,1,0,1
+Not Stranded,65,0,1,1,0,0,1
+Not Stranded,79,0,0,0,1,1,1
+Not Stranded,80,0,0,1,1,0,1
+Not Stranded,33,0,0,1,1,0,1
+Not Stranded,72,1,1,0,0,0,1
+Stranded,42,0,0,0,0,1,10
+Not Stranded,70,1,1,1,1,0,1
+Not Stranded,72,0,0,1,0,0,1
+Not Stranded,70,0,0,1,1,1,1
+Not Stranded,28,1,1,0,0,0,1
+Not Stranded,74,0,1,1,0,1,1
+Not Stranded,73,0,1,0,1,0,1
+Not Stranded,80,0,1,1,1,1,1
+Not Stranded,67,1,0,1,0,0,1
+Not Stranded,67,0,1,0,1,0,1
+Stranded,60,1,0,0,1,1,3
+Not Stranded,71,1,1,1,1,1,1
+Not Stranded,73,0,0,1,0,0,1
+Not Stranded,22,1,1,1,0,1,1
+Not Stranded,72,0,1,0,0,1,1
+Not Stranded,73,0,0,0,0,0,1
+Not Stranded,76,0,0,1,0,0,1
+Not Stranded,69,0,0,1,1,1,1
+Not Stranded,70,1,0,0,1,1,2
+Not Stranded,74,0,1,0,1,0,1
+Stranded,66,0,1,0,1,0,3
+Stranded,45,1,0,1,1,1,1
+Stranded,49,1,0,1,1,0,1
+Not Stranded,21,0,0,0,1,1,1
+Not Stranded,80,0,0,0,0,1,1
+Not Stranded,22,1,1,0,0,1,1
+Not Stranded,68,0,1,0,1,0,1
+Not Stranded,74,0,1,1,1,0,1
+Not Stranded,53,0,0,1,0,0,1
+Not Stranded,25,0,0,1,1,0,1
+Not Stranded,25,0,1,1,0,0,1
+Not Stranded,23,0,0,1,0,0,1
+Stranded,22,0,0,0,1,0,7
+Stranded,26,1,0,0,1,1,3
+Not Stranded,22,1,1,0,1,0,1
+Not Stranded,27,1,1,1,1,1,1
+Not Stranded,62,0,0,0,0,1,1
+Not Stranded,68,1,0,0,1,1,1
+Not Stranded,77,1,1,0,0,1,1
+Not Stranded,63,0,0,0,0,0,1
+Not Stranded,23,1,1,0,1,0,1
+Not Stranded,46,0,0,0,1,0,8
+Not Stranded,74,0,0,0,0,0,1
+Stranded,44,0,0,1,0,1,1
+Not Stranded,60,1,0,1,0,1,1
+Not Stranded,71,0,0,1,1,0,2
+Not Stranded,25,0,0,0,1,1,1
+Not Stranded,43,1,0,0,0,1,1
+Stranded,80,1,0,1,1,1,2
+Stranded,79,0,0,0,0,0,1
+Stranded,28,1,0,0,0,1,1
+Stranded,26,1,0,1,0,0,
+Stranded,65,0,0,0,1,1,
+Stranded,63,1,0,0,0,1,
+Stranded,52,0,1,0,0,1,
+Stranded,69,0,1,1,1,1,
+Stranded,27,1,0,1,1,0,
+Stranded,65,1,0,0,1,0,
+Stranded,30,0,1,0,1,1,
+Stranded,22,1,0,0,0,0,
+Stranded,60,0,0,1,1,0,
+Stranded,23,0,1,0,0,1,
+Stranded,24,0,1,0,0,0,
+Stranded,40,0,1,1,1,1,
+Stranded,38,0,1,0,1,1,
+Stranded,21,1,0,1,0,0,
+Stranded,67,0,1,1,0,1,
+Stranded,34,0,0,1,1,1,
+Stranded,72,1,0,0,0,1,
+Stranded,56,0,0,1,0,1,
+Stranded,24,1,0,1,0,1,
+Stranded,67,0,1,0,0,0,
+Stranded,34,0,1,0,1,0,
+Stranded,66,1,1,1,0,1,
+Stranded,42,1,1,0,1,1,
+Stranded,67,1,1,0,0,0,
+Stranded,79,0,0,1,0,1,
+Stranded,38,1,0,0,1,1,
+Stranded,25,1,1,0,1,0,
+Stranded,22,0,0,1,1,1,
+Stranded,66,0,0,1,1,1,
+Stranded,78,0,1,0,0,1,
+Stranded,75,1,1,1,1,1,
+Stranded,22,1,1,1,1,0,
+Stranded,24,1,1,1,0,0,
+Stranded,76,0,1,1,1,1,
+Stranded,75,1,0,0,1,1,
+Stranded,72,0,0,1,0,1,
+Stranded,76,1,1,1,0,1,
+Stranded,76,1,0,0,1,0,
+Stranded,67,1,0,0,0,1,
+Stranded,42,1,1,1,1,0,
+Stranded,64,1,0,0,1,0,
+Stranded,72,0,0,0,0,1,
+Stranded,22,1,1,0,0,0,
+Stranded,64,0,1,0,0,0,
+Stranded,39,1,0,0,0,0,
+Stranded,70,1,0,0,0,0,
+Stranded,27,1,1,0,0,0,
+Stranded,32,0,0,1,1,1,
+Stranded,36,0,1,1,1,0,
+Stranded,50,1,1,1,0,1,
+Stranded,61,1,0,0,1,1,
+Stranded,28,1,0,1,0,1,
+Stranded,25,0,1,1,1,1,
+Stranded,60,0,0,1,0,0,
+Stranded,65,0,0,0,1,1,
+Stranded,37,1,0,1,1,1,
+Stranded,62,0,1,0,0,1,
+Stranded,52,0,0,1,0,1,
+Stranded,73,1,1,0,1,0,
+Stranded,66,1,1,1,1,0,
+Stranded,22,1,1,1,1,1,
+Stranded,43,1,1,1,1,1,
+Stranded,33,0,0,1,1,1,
+Stranded,63,0,1,0,1,1,
+Stranded,65,1,0,0,0,1,
+Stranded,70,0,0,0,1,1,
+Stranded,61,0,1,0,1,0,
+Stranded,65,0,0,1,0,0,

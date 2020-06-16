@@ -1,0 +1,194 @@
+---
+title: "02 Caret Regression Model"
+author: "Gary Hutson - Head of AI and Solutions"
+date: "08/06/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list = objects())
+library(tidyverse)
+library(caret)
+library(caretEnsemble)
+library(mlbench)
+library(DMwR)
+library(klaR)
+library(magrittr)
+library(RSNNS)
+library(randomForest)
+library(xgboost)
+library(elasticnet)
+library(quantregForest)
+library(qrnn)
+```
+
+## Importing data
+
+The data pertains to ED presenters historically with the aim of using their recorded time to be seen to be able to predict when and who will get seen the fastest, using underlying presenting features to the emergency department. This is based on test data and no trust data has been utilised. 
+
+
+```{r ED_data, echo=TRUE, include=TRUE}
+# Read data in 
+ED <- read.csv('Data/ED_TTBS_Data.csv') %>% 
+  drop_na() 
+
+ED %>%  
+  glimpse()
+```
+
+The data has already been dummy coded for the categorical codings. This would need to be considered as part of the data cleaning and feature encoding part, however as this is a webinar for expedience I skip this step. 
+
+## Feature encoding and scaling
+
+The same methods applied in the classification example can be utilised here, in terms of feature encoding and scaling / standardising your data. The only one that would not be needed here is class imbalance, as this is a regression task and not a classification one. 
+
+## Regression ML algorithm benchmarking
+
+As with the classification task, we will run multiple ML regression models on the dataset and outline which one has the smallest Root Mean Squared Error (RMSE) https://www.statisticshowto.com/probability-and-statistics/regression-analysis/rmse-root-mean-square-error/ and Mean Squared Error (MSE): https://www.statisticshowto.com/mean-squared-error/.
+
+## Set the evaluation harness 
+
+The evaluation harness is how we are going to evaluate the model after it has been trained:
+
+```{r ED_ML_test_harness, echo=TRUE, include=TRUE}
+# Set a training control scheme as per classification example
+reg_ctrl <- caret::trainControl(method = "cv", number=10)
+seed <- 123
+metric <- "RMSE"
+```
+Here we will use K-Fold cross validation with 10 partitions of the training and test data.
+
+```{r ED_ML_bench, echo=TRUE, include=TRUE}
+# Linear regression
+set.seed(seed)
+lm_mod <- caret::train(
+  TTBS_mins ~ ., 
+  data = ED, 
+  method = "lm", metric = metric, preProc=c("center", "scale"), # Set the standardisation in the train command
+  trControl=reg_ctrl
+)
+# Elasticnet 
+set.seed(seed)
+elasticnet_mod <- caret::train(
+  TTBS_mins ~ ., 
+  data = ED, 
+  method = "enet", metric = metric, preProc=c("center", "scale"), 
+  trControl=reg_ctrl, verbose = TRUE
+)
+
+#Least angle regression
+set.seed(seed)
+lars_mod <- caret::train(
+  TTBS_mins ~ ., 
+  data = ED, 
+  method = "lars", metric = metric, preProc=c("center", "scale"), 
+  trControl=reg_ctrl
+)
+
+# Try some non-linear examples
+
+# Neural net
+set.seed(seed)
+ann_mod <- caret::train(
+  TTBS_mins ~ ., 
+  data = ED, 
+  method = "nnet", metric = metric, preProc=c("center", "scale"), 
+  trControl=reg_ctrl, verbose = TRUE
+)
+
+# SVM Radial Basis Kernels
+set.seed(seed)
+svm_mod <- caret::train(
+  TTBS_mins ~ ., 
+  data = ED, 
+  method = "svmRadial", metric = metric, preProc=c("center", "scale"), 
+  trControl=reg_ctrl, verbose = FALSE
+)
+
+#Regression Tree
+rpart_mod <- caret::train(
+  TTBS_mins ~ ., 
+  data = ED, 
+  method = "rpart", metric = metric, preProc=c("center", "scale"), 
+  trControl=reg_ctrl
+)
+#Random regression forest
+rf_mod <- caret::train(
+  TTBS_mins ~ ., 
+  data = ED, 
+  method = "rf", metric = metric, preProc=c("center", "scale"), 
+  trControl=reg_ctrl
+)
+```
+Once we have run our combination of regressors, we will look at examining these using the resamples function, as we have resampled them on a K-Fold Cross Validation algorithm:
+```{r ED_ML_bench_resamp, echo=TRUE, include=TRUE}
+results <- resamples(
+  list(Linear = lm_mod,
+       ElasticNet = elasticnet_mod,
+       Least_Angle_Reg = lars_mod,
+       Neural_Net = ann_mod,
+       SVMRadial = svm_mod,
+       RPART = rpart_mod,
+       RandomForest = rf_mod)
+)
+
+
+scales <- list(x=list(relation="free"), y=list(relation="free"))
+dotplot(results)
+bwplot(results, scales=scales)
+
+
+```
+The best performing model is the random regression forest, however the low R-Squared for all models indicates that the features present in the model do not explain the model as well as needed. Therefore, the pursuit for more features would be the best way to improve this. 
+
+## Improving model performance with ensembles
+
+Creating an ensemble algorithm does not always mean you will improve the performance of your ensemble against a random forest (which is already an ensemble of regression trees). This section is included, as you can get ensembles to match the performance of random forests. 
+
+### A function to generate ensembles with any inputs
+
+I have created a function which allows you to pass any data frame and Y predictor into the model. The function is outlined below:
+```{r ensem_function, echo=TRUE, include=TRUE}
+ensemble_function <- function(Y.label, df, k_folds, meta_model_name){
+  
+  ensemble_control <- caret::trainControl(method="cv", number = k_folds, 
+                                   savePredictions = 'final', classProbs = TRUE)
+  
+  ensemble_alg_list <- c("rf", "qrf")
+  # Runs a random forest and a quantile random forest - algorithms could be added to this list and hard coded
+  # or passed as inputs
+  ensemble_models <- caretEnsemble::caretList(
+    as.formula(paste(Y.label, "~ .")), 
+    data=df, trControl=ensemble_control, methodList=ensemble_alg_list
+  )
+ 
+  meta_ensemble <- caretEnsemble::caretStack(ensemble_models, method = as.character(meta_model_name))
+}
+
+```
+
+To call the ensemble you then pass in your parameters for your ML model:
+
+```{r run_ensemble_fnc, echo=TRUE, include=TRUE}
+system.time(
+  suppressWarnings(meta_ensemble <- ensemble_function("TTBS_mins", ED, k_folds = 10, 
+                                   meta_model_name = "svmRadial"))
+)
+
+
+plot(meta_ensemble$ens_model)
+meta_ensemble$ens_model$results
+
+```
+
+Here you could also use random and grid search to optimise the cost parameter of the radial basis support vector machine: https://www.youtube.com/watch?v=Z2_yh2sice8.
+
+## Saving the model to make predictions
+
+I would be happy with the low RMSE in the predictions produced by the random forest from the ensemble model, but due to this being only test data, more features would improve the RMSE and MSE:
+
+```{r save_ensem_model, echo=TRUE, include=TRUE}
+save(ED, meta_ensemble, file = "Models/Regression_Prod_Model.rda")
+
+```
