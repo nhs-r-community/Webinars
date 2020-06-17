@@ -13,18 +13,17 @@ Each folder contains a session:
 
 ### Webinars for 2020
 
-| Date       | Session Name                      |   Presenter    |                                                                                                            Folder |
-| ---------- | :-------------------------------- | :------------: | ----------------------------------------------------------------------------------------------------------------: |
-| 19/02/2020 | Database Connections in R         |  Chris Mainey  | [Database\_connections\_in\_R](https://github.com/nhs-r-community/Webinars/tree/master/Database_connections_in_R) |
-| 18/03/2020 |                                   |  Tom Jemmett   |                                                                                                                   |
-| 22/04/2020 |                                   |  Chris Beeley  |                                                                                                                   |
-| 20/05/2020 |                                   | Emma Vestesson |                                                                                                                   |
-| 17/06/2020 |                                   |                |                                                                                                                   |
-| 15/07/2020 |                                   |                |                                                                                                                   |
-| 19/08/2020 |                                   |                |                                                                                                                   |
-| 16/09/2020 | Why and how to build an R package |  Chris Mainey  |                                                                                                                   |
-| 21/10/2020 |                                   |                |                                                                                                                   |
-| 18/11/2020 |                                   |                |                                                                                                                   |
+| Date       | Session Name                      |   Presenter    |                                                                                                            Folder | Video |
+| ---------- | :-------------------------------- | :------------: | ----------------------------------------------------------------------------------------------------------------: | :---: |
+| 19/02/2020 | Database Connections in R         |  Chris Mainey  | [Database\_connections\_in\_R](https://github.com/nhs-r-community/Webinars/tree/master/Database_connections_in_R) | [Watch](https://nhsrcommunity.com/learn-r/workshops/database-connections-in-r-webinar/) |
+| 22/04/2020 | Shiny Webinar                     |  Chris Beeley  | [Shiny](https://github.com/nhs-r-community/Webinars/tree/master/Shiny) | [Watch](https://nhsrcommunity.com/learn-r/workshops/shiny-webinar/) |
+| 20/05/2020 | Functional Programming with purrr | Tom Jemmett   |  [fp_with_purrr](https://github.com/nhs-r-community/Webinars/tree/master/fp_with_purrr)                                                                                                       | [Watch](https://nhsrcommunity.com/learn-r/workshops/functional-programming-using-the-purrr-package-webinar/) |
+| 17/06/2020 | Advanced Modelling Webinar        | Gary Hutson   |                                                                                                                   | |
+| 15/07/2020 |                                   |                |                                                                                                                   | |
+| 19/08/2020 |                                   |                |                                                                                                                   | |
+| 16/09/2020 | Why and how to build an R package |  Chris Mainey  |                                                                                                                   | |
+| 21/10/2020 |                                   |                |                                                                                                                   | |
+| 18/11/2020 |                                   |                |                                                                                                                   | |
 
 # Accessing Material
 
