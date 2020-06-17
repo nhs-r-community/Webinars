@@ -1,0 +1,137 @@
+---
+title: "04 Caret Multi-Class Classification"
+author: "Gary Hutson - Head of Solutions and AI"
+date: "08/06/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(caret)
+library(caretEnsemble)
+library(mlbench)
+library(DMwR)
+library(klaR)
+library(magrittr)
+library(RSNNS)
+library(randomForest)
+library(xgboost)
+```
+
+## Load data and inspect classification levels
+
+Multi class classification relates to when you dependent variable (predicted variable) has more than two levels. The example we use for this is different readmission bandings. 
+
+```{r load_data, include=TRUE}
+df <- read.csv("Data/Multiclass_data.csv", header = TRUE)
+head(df, 10)
+table(df$Outcome)
+df$Outcome <- make.names(df$Outcome)
+df$Outcome <- as.factor(df$Outcome)
+levels(df$Outcome)
+
+```
+
+Again, this is a test dataset and you might have to undertake some type of over or under sampling to get better representation for each of the class labels. 
+
+## Create test / train split on dataset
+
+I will create a simple partition on the data to examine the class accuracy using a confusion matrix:
+
+```{r split_data, include=TRUE}
+split_idx <- caret::createDataPartition(df$Outcome, 
+                                        p = 0.8,
+                                        list = FALSE)
+
+validation <- df[-split_idx,]
+train <- df
+
+```
+
+This uses the concept of a validation dataset to be used after the resampling method to test the accuracy of the model based on new / unseen data. The same concept as we have already examined in the production section of the modelling. 
+
+## Summarise class distribution and dataset
+
+I have created a proportional table function to summarise by the number of classes passed to the table. This will allow you to visualise class membership and proportional distribution:
+
+```{r sum_data_class, include=TRUE}
+dim(df)
+sapply(df, class)
+
+# Summarise class distribution
+class_distribution <- function(field){
+  per_dist <- prop.table(table(field)) * 100
+  cbind(Class_Frequency=table(field), 
+        Class_percentage = per_dist) %>% 
+    as.data.frame()
+}
+
+class_distribution(df$Outcome)
+
+```
+
+## Set up resampling method
+
+The resampling method to evaluate the model is again 10 fold cross validation. 
+```{r resamp_method, include=TRUE}
+train_ctrl <- caret::trainControl(method = "cv", number = 10)
+metric <- "Accuracy"
+
+```
+
+## Benchmark algorithms
+Again, we implement a similar benchmarking procedure as in the regression and classification tasks:
+
+```{r ml_bench, include=TRUE}
+set.seed(123)
+rf_mod <- caret::train(Outcome ~ ., 
+                       data = df, 
+                       method = "rf", metric = metric, trainControl=train_ctrl)
+
+# Run on K-Nearest neighbours and naive bayes
+set.seed(123)
+lda_mod <- caret::train(Outcome ~ ., 
+                       data = df, 
+                       method = "lda", metric = metric, trainControl=train_ctrl)
+set.seed(123)
+svm_rad_mod <- caret::train(Outcome ~ ., 
+                        data = df, 
+                        method = "svmRadial", metric = metric, trainControl=train_ctrl)
+
+```
+
+The algorithms have now run, we will collect the resamples to look at the model fits:
+
+```{r ml_fits, include=TRUE}
+mc_results <- caret::resamples(
+  list(Random.Forest = rf_mod,
+       Linear.Discriminant.Analysis = lda_mod,
+       Support.Vector.Machine.Radial.Basis.Kernel = svm_rad_mod)
+)
+
+summary(mc_results)
+dotplot(mc_results)
+print(rf_mod)
+```
+
+The accuracy will start to decrease with multiple classification models. For these types of classifications - Deep Neural Networks might be a better option, plus it saves time on exploring features in the models - as these are what I call feature agnostic, as the model finds the relationships. 
+
+## Predict model fits on validation set
+With the reserved validation dataset we will estimate the model skill at predicting unseen data:
+
+```{r ml_preds, include=TRUE}
+set.seed(123)
+mc_pred <- predict(rf_mod, newdata = validation)
+head(mc_pred, 10)
+```
+
+## Create confusion matrix to evaluate models against validation set
+
+Now, the last step is to observe the confusion matrix fit for this:
+```{r con_matrix, include=TRUE}
+cm <- caret::confusionMatrix(mc_pred, validation$Outcome)
+print(cm)
+```
+
+The confusion matrix metrics can then be evaluated to see how well the model performs at predicting associated confusion matrix measures, such as sensitivity (https://classeval.wordpress.com/introduction/basic-evaluation-measures/#:~:text=Sensitivity%20(Recall%20or%20True%20positive,whereas%20the%20worst%20is%200.0.) as well as other associated measures.

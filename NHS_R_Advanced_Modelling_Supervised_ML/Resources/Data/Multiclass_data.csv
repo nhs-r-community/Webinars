@@ -1,0 +1,451 @@
+Readmissions previously,High Risk Mediciation,Mean.LOS.per.readmit.mins,Barratric.patient,Patient Age,Outcome
+2,0,220,1,81,Readmitted in 30 days
+2,0,146,1,41,Readmitted in 30 days
+2,1,122,1,45,Readmitted in 30 days
+2,0,123,0,80,Readmitted in 30 days
+2,1,146,0,74,Readmitted in 30 days
+4,1,170,0,82,Readmitted in 30 days
+3,1,109,0,86,Readmitted in 30 days
+2,0,67,0,77,Readmitted in 30 days
+2,1,178,0,49,Readmitted in 30 days
+1,0,68,1,44,Readmitted in 30 days
+2,0,156,0,76,Readmitted in 30 days
+2,0,138,1,85,Readmitted in 30 days
+1,1,238,0,60,Readmitted in 30 days
+1,1,232,1,52,Readmitted in 30 days
+2,1,172,0,71,Readmitted in 30 days
+4,1,88,0,64,Readmitted in 30 days
+4,1,112,0,41,Readmitted in 30 days
+3,1,109,0,47,Readmitted in 30 days
+3,0,172,1,79,Readmitted in 30 days
+3,1,117,0,42,Readmitted in 30 days
+2,1,149,0,71,Readmitted in 30 days
+4,0,151,1,79,Readmitted in 30 days
+2,0,173,1,56,Readmitted in 30 days
+5,1,248,1,46,Readmitted in 30 days
+2,1,248,0,39,Readmitted in 30 days
+2,1,102,1,73,Readmitted in 30 days
+4,0,99,0,39,Readmitted in 30 days
+2,0,171,1,56,Readmitted in 30 days
+2,0,116,0,64,Readmitted in 30 days
+2,0,81,1,35,Readmitted in 30 days
+2,0,88,0,80,Readmitted in 30 days
+4,0,87,0,58,Readmitted in 30 days
+1,0,105,0,40,Readmitted in 30 days
+2,0,92,0,69,Readmitted in 30 days
+2,1,252,0,48,Readmitted in 30 days
+2,1,210,1,83,Readmitted in 30 days
+2,0,89,1,57,Readmitted in 30 days
+1,1,225,0,63,Readmitted in 30 days
+2,1,105,0,42,Readmitted in 30 days
+2,1,111,0,83,Readmitted in 30 days
+3,1,209,1,49,Readmitted in 30 days
+3,1,120,0,61,Readmitted in 30 days
+2,1,120,1,83,Readmitted in 30 days
+6,1,161,0,75,Readmitted in 30 days
+4,0,128,1,53,Readmitted in 30 days
+3,1,201,1,59,Readmitted in 30 days
+2,1,169,1,60,Readmitted in 30 days
+2,0,64,1,79,Readmitted in 30 days
+2,1,64,1,34,Readmitted in 30 days
+2,0,257,1,71,Readmitted in 30 days
+1,0,142,0,84,Readmitted in last 14 days
+2,1,101,1,74,Readmitted in last 14 days
+2,1,248,0,86,Readmitted in last 14 days
+1,0,120,1,75,Readmitted in last 14 days
+2,1,135,0,86,Readmitted in last 14 days
+1,1,141,0,82,Readmitted in last 14 days
+2,0,198,1,84,Readmitted in last 14 days
+1,1,67,0,92,Readmitted in last 14 days
+1,0,81,0,46,Readmitted in last 14 days
+1,0,235,0,89,Readmitted in last 14 days
+1,1,75,0,55,Readmitted in last 14 days
+2,0,127,1,86,Readmitted in last 14 days
+1,0,115,0,64,Readmitted in last 14 days
+1,1,130,1,58,Readmitted in last 14 days
+1,0,165,0,57,Readmitted in last 14 days
+1,1,113,1,58,Readmitted in last 14 days
+2,1,79,0,32,Readmitted in last 14 days
+1,1,223,1,73,Readmitted in last 14 days
+2,0,153,0,47,Readmitted in last 14 days
+1,1,247,0,36,Readmitted in last 14 days
+2,1,122,1,86,Readmitted in last 14 days
+1,0,208,0,45,Readmitted in last 14 days
+2,0,161,0,46,Readmitted in last 14 days
+1,0,172,1,49,Readmitted in last 14 days
+1,1,229,0,72,Readmitted in last 14 days
+1,1,198,0,53,Readmitted in last 14 days
+1,1,109,1,39,Readmitted in last 14 days
+2,0,201,0,35,Readmitted in last 14 days
+2,0,134,1,76,Readmitted in last 14 days
+1,1,180,0,55,Readmitted in last 14 days
+1,0,234,1,53,Readmitted in last 14 days
+1,1,252,0,41,Readmitted in last 14 days
+1,1,142,1,42,Readmitted in last 14 days
+2,0,126,1,68,Readmitted in last 14 days
+2,1,114,1,56,Readmitted in last 14 days
+2,1,97,0,62,Readmitted in last 14 days
+2,0,206,0,92,Readmitted in last 14 days
+1,0,220,1,39,Readmitted in last 14 days
+1,1,73,1,57,Readmitted in last 14 days
+1,1,106,0,72,Readmitted in last 14 days
+1,0,145,1,49,Readmitted in last 14 days
+1,1,101,0,43,Readmitted in last 14 days
+1,1,174,1,92,Readmitted in last 14 days
+1,0,168,1,61,Readmitted in last 14 days
+1,0,188,0,34,Readmitted in last 14 days
+1,1,203,1,91,Readmitted in last 14 days
+1,1,87,0,69,Readmitted in last 14 days
+1,1,139,0,89,Readmitted in last 14 days
+1,1,218,0,50,Readmitted in last 14 days
+1,1,69,1,57,Readmitted in last 14 days
+3,1,244,1,63,Not Readmission
+2,1,194,1,42,Not Readmission
+2,0,194,1,44,Not Readmission
+2,1,189,0,51,Not Readmission
+2,1,199,1,83,Not Readmission
+2,1,250,1,83,Not Readmission
+2,0,133,1,67,Not Readmission
+2,0,172,0,72,Not Readmission
+2,1,221,1,60,Not Readmission
+3,0,149,0,81,Not Readmission
+2,0,105,1,76,Not Readmission
+2,0,127,1,59,Not Readmission
+2,0,237,1,82,Not Readmission
+2,1,105,0,50,Not Readmission
+2,0,64,1,82,Not Readmission
+2,0,178,1,54,Not Readmission
+2,0,87,0,66,Not Readmission
+2,1,96,0,88,Not Readmission
+2,1,254,0,42,Not Readmission
+2,0,126,1,43,Not Readmission
+2,1,110,0,64,Not Readmission
+2,1,83,0,90,Not Readmission
+2,0,108,1,50,Not Readmission
+2,1,257,1,71,Not Readmission
+2,1,146,1,88,Not Readmission
+2,0,186,0,46,Not Readmission
+2,0,98,1,49,Not Readmission
+2,1,240,0,33,Not Readmission
+2,1,156,0,85,Not Readmission
+2,0,132,1,91,Not Readmission
+2,1,194,1,59,Not Readmission
+2,0,124,1,47,Not Readmission
+2,1,90,1,47,Not Readmission
+2,1,62,1,46,Not Readmission
+1,1,72,1,60,Not Readmission
+2,1,117,0,84,Not Readmission
+2,0,68,0,74,Not Readmission
+2,1,226,0,41,Not Readmission
+2,0,63,0,85,Not Readmission
+2,1,207,0,91,Not Readmission
+2,0,236,1,43,Not Readmission
+2,0,242,0,49,Not Readmission
+2,0,243,1,72,Not Readmission
+2,0,238,1,51,Not Readmission
+3,1,219,1,73,Not Readmission
+2,0,214,0,35,Not Readmission
+2,1,65,1,62,Not Readmission
+2,1,191,1,89,Not Readmission
+2,0,236,0,38,Not Readmission
+2,0,224,1,83,Not Readmission
+2,0,133,0,55,Readmitted in 30 days
+2,1,176,0,52,Readmitted in 30 days
+2,0,167,1,68,Readmitted in 30 days
+2,0,237,1,91,Readmitted in 30 days
+2,1,81,1,58,Readmitted in 30 days
+4,0,136,0,47,Readmitted in 30 days
+3,1,193,1,74,Readmitted in 30 days
+2,0,162,0,57,Readmitted in 30 days
+2,1,186,0,75,Readmitted in 30 days
+1,0,109,1,66,Readmitted in 30 days
+2,1,178,1,36,Readmitted in 30 days
+2,0,199,1,78,Readmitted in 30 days
+1,1,88,1,71,Readmitted in 30 days
+1,0,168,0,47,Readmitted in 30 days
+2,1,206,0,86,Readmitted in 30 days
+4,1,246,0,86,Readmitted in 30 days
+4,1,177,1,36,Readmitted in 30 days
+3,0,129,0,84,Readmitted in 30 days
+3,0,105,0,88,Readmitted in 30 days
+3,1,139,1,60,Readmitted in 30 days
+2,1,133,1,51,Readmitted in 30 days
+4,0,212,1,87,Readmitted in 30 days
+2,0,236,1,47,Readmitted in 30 days
+5,0,205,0,45,Readmitted in 30 days
+2,0,114,0,34,Readmitted in 30 days
+2,1,104,1,59,Readmitted in 30 days
+4,0,216,0,54,Readmitted in 30 days
+2,1,79,0,65,Readmitted in 30 days
+2,0,170,0,59,Readmitted in 30 days
+2,1,91,1,34,Readmitted in 30 days
+2,0,87,0,70,Readmitted in 30 days
+4,1,221,0,36,Readmitted in 30 days
+1,1,208,0,42,Readmitted in 30 days
+2,1,67,1,35,Readmitted in 30 days
+2,1,158,1,90,Readmitted in 30 days
+2,0,233,1,80,Readmitted in 30 days
+2,1,140,1,34,Readmitted in 30 days
+1,0,201,0,68,Readmitted in 30 days
+2,0,128,1,76,Readmitted in 30 days
+2,0,70,1,54,Readmitted in 30 days
+3,1,206,1,56,Readmitted in 30 days
+3,0,164,0,49,Readmitted in 30 days
+2,1,209,0,47,Readmitted in 30 days
+6,1,222,1,60,Readmitted in 30 days
+4,0,235,0,44,Readmitted in 30 days
+3,1,159,1,33,Readmitted in 30 days
+2,0,179,0,32,Readmitted in 30 days
+2,1,183,0,63,Readmitted in 30 days
+2,0,180,1,67,Readmitted in 30 days
+2,0,67,1,84,Readmitted in 30 days
+1,0,112,0,48,Readmitted in last 14 days
+2,1,136,1,80,Readmitted in last 14 days
+2,0,81,1,90,Readmitted in last 14 days
+1,0,234,1,38,Readmitted in last 14 days
+2,1,109,0,76,Readmitted in last 14 days
+1,1,190,0,73,Readmitted in last 14 days
+2,1,68,1,41,Readmitted in last 14 days
+1,1,65,0,38,Readmitted in last 14 days
+1,0,85,0,62,Readmitted in last 14 days
+1,1,128,1,88,Readmitted in last 14 days
+1,0,95,0,83,Readmitted in last 14 days
+2,1,179,0,34,Readmitted in last 14 days
+1,1,75,1,45,Readmitted in last 14 days
+1,0,158,1,65,Readmitted in last 14 days
+1,0,155,0,46,Readmitted in last 14 days
+1,1,228,0,89,Readmitted in last 14 days
+2,0,125,1,52,Readmitted in last 14 days
+1,1,137,1,61,Readmitted in last 14 days
+2,1,184,1,38,Readmitted in last 14 days
+1,1,250,0,69,Readmitted in last 14 days
+2,1,213,0,75,Readmitted in last 14 days
+1,1,137,1,53,Readmitted in last 14 days
+2,1,121,1,33,Readmitted in last 14 days
+1,1,167,0,48,Readmitted in last 14 days
+1,1,232,0,79,Readmitted in last 14 days
+1,0,141,0,80,Readmitted in last 14 days
+1,0,142,0,56,Readmitted in last 14 days
+2,0,122,0,57,Readmitted in last 14 days
+2,1,152,0,59,Readmitted in last 14 days
+1,0,187,0,41,Readmitted in last 14 days
+1,1,94,0,80,Readmitted in last 14 days
+1,0,189,0,92,Readmitted in last 14 days
+1,1,110,0,54,Readmitted in last 14 days
+2,1,199,0,37,Readmitted in last 14 days
+2,0,95,1,79,Readmitted in last 14 days
+2,0,248,1,45,Readmitted in last 14 days
+2,1,163,0,69,Readmitted in last 14 days
+1,0,89,0,68,Readmitted in last 14 days
+1,1,136,0,92,Readmitted in last 14 days
+1,0,246,1,36,Readmitted in last 14 days
+1,0,235,1,62,Readmitted in last 14 days
+1,0,212,0,75,Readmitted in last 14 days
+1,1,179,0,48,Readmitted in last 14 days
+1,1,130,0,47,Readmitted in last 14 days
+1,1,177,0,75,Readmitted in last 14 days
+1,0,125,1,73,Readmitted in last 14 days
+1,0,88,0,43,Readmitted in last 14 days
+1,1,117,0,50,Readmitted in last 14 days
+1,1,245,1,60,Readmitted in last 14 days
+1,1,120,1,50,Readmitted in last 14 days
+3,1,70,0,74,Not Readmission
+2,0,183,0,62,Not Readmission
+2,1,114,0,91,Not Readmission
+2,0,129,1,44,Not Readmission
+2,0,152,0,87,Not Readmission
+2,1,185,0,59,Not Readmission
+2,0,92,1,33,Not Readmission
+2,0,125,1,47,Not Readmission
+2,0,188,0,35,Not Readmission
+3,1,245,0,87,Not Readmission
+2,0,197,1,47,Not Readmission
+2,1,149,1,82,Not Readmission
+2,0,206,0,67,Not Readmission
+2,1,229,1,54,Not Readmission
+2,1,238,0,77,Not Readmission
+2,1,228,1,51,Not Readmission
+2,1,225,0,86,Not Readmission
+2,0,151,1,75,Not Readmission
+2,0,223,0,82,Not Readmission
+2,1,71,0,47,Not Readmission
+2,0,89,1,82,Not Readmission
+2,1,186,1,81,Not Readmission
+2,1,240,0,54,Not Readmission
+2,1,150,1,38,Not Readmission
+2,0,235,0,68,Not Readmission
+2,1,117,0,80,Not Readmission
+2,1,190,0,67,Not Readmission
+2,0,136,1,54,Not Readmission
+2,1,79,1,77,Not Readmission
+2,1,149,1,72,Not Readmission
+2,0,239,0,70,Not Readmission
+2,1,72,0,52,Not Readmission
+2,1,253,0,67,Not Readmission
+2,0,248,1,75,Not Readmission
+1,1,149,1,37,Not Readmission
+2,0,179,0,41,Not Readmission
+2,0,153,0,87,Not Readmission
+2,0,70,1,76,Not Readmission
+2,1,109,0,33,Not Readmission
+2,0,252,0,77,Not Readmission
+2,1,79,0,60,Not Readmission
+2,1,196,1,52,Not Readmission
+2,0,234,0,87,Not Readmission
+2,1,68,0,90,Not Readmission
+3,1,167,0,57,Not Readmission
+2,1,247,0,53,Not Readmission
+2,1,228,0,65,Not Readmission
+2,0,250,0,67,Not Readmission
+2,0,95,0,57,Not Readmission
+2,0,155,1,90,Not Readmission
+2,1,77,1,84,Readmitted in 30 days
+2,1,163,0,37,Readmitted in 30 days
+2,0,249,1,32,Readmitted in 30 days
+2,1,258,0,62,Readmitted in 30 days
+2,1,241,1,56,Readmitted in 30 days
+4,1,67,0,80,Readmitted in 30 days
+3,1,98,1,66,Readmitted in 30 days
+2,0,63,1,72,Readmitted in 30 days
+2,0,155,1,45,Readmitted in 30 days
+1,1,199,1,50,Readmitted in 30 days
+2,1,151,1,74,Readmitted in 30 days
+2,1,171,1,71,Readmitted in 30 days
+1,1,101,0,61,Readmitted in 30 days
+1,1,89,1,51,Readmitted in 30 days
+2,0,250,1,56,Readmitted in 30 days
+4,0,221,0,76,Readmitted in 30 days
+4,1,60,1,88,Readmitted in 30 days
+3,0,178,1,43,Readmitted in 30 days
+3,1,91,1,61,Readmitted in 30 days
+3,1,170,1,37,Readmitted in 30 days
+2,1,228,1,72,Readmitted in 30 days
+4,1,182,0,37,Readmitted in 30 days
+2,1,93,1,78,Readmitted in 30 days
+5,0,137,0,66,Readmitted in 30 days
+2,1,111,1,43,Readmitted in 30 days
+2,0,102,0,60,Readmitted in 30 days
+4,1,196,1,76,Readmitted in 30 days
+2,0,124,1,33,Readmitted in 30 days
+2,1,252,1,67,Readmitted in 30 days
+2,1,183,1,57,Readmitted in 30 days
+2,1,166,1,83,Readmitted in 30 days
+4,1,260,1,63,Readmitted in 30 days
+1,0,105,0,88,Readmitted in 30 days
+2,1,94,0,38,Readmitted in 30 days
+2,0,229,0,75,Readmitted in 30 days
+2,1,238,0,56,Readmitted in 30 days
+2,1,172,0,91,Readmitted in 30 days
+1,0,236,1,43,Readmitted in 30 days
+2,0,250,0,83,Readmitted in 30 days
+2,0,170,0,36,Readmitted in 30 days
+3,1,172,0,85,Readmitted in 30 days
+3,1,247,1,44,Readmitted in 30 days
+2,1,173,0,67,Readmitted in 30 days
+6,0,217,1,90,Readmitted in 30 days
+4,0,219,1,35,Readmitted in 30 days
+3,1,183,1,76,Readmitted in 30 days
+2,0,138,1,90,Readmitted in 30 days
+2,0,234,0,36,Readmitted in 30 days
+2,0,102,1,61,Readmitted in 30 days
+2,0,110,1,35,Readmitted in 30 days
+1,1,163,1,54,Readmitted in last 14 days
+2,0,127,0,88,Readmitted in last 14 days
+2,1,150,1,69,Readmitted in last 14 days
+1,1,105,0,37,Readmitted in last 14 days
+2,0,86,1,71,Readmitted in last 14 days
+1,1,144,0,39,Readmitted in last 14 days
+2,0,86,1,63,Readmitted in last 14 days
+1,1,216,0,43,Readmitted in last 14 days
+1,0,175,0,66,Readmitted in last 14 days
+1,1,68,0,43,Readmitted in last 14 days
+1,0,118,1,78,Readmitted in last 14 days
+2,1,241,0,64,Readmitted in last 14 days
+1,1,244,0,83,Readmitted in last 14 days
+1,0,65,0,50,Readmitted in last 14 days
+1,0,117,1,80,Readmitted in last 14 days
+1,1,192,1,70,Readmitted in last 14 days
+2,1,246,0,46,Readmitted in last 14 days
+1,1,159,1,57,Readmitted in last 14 days
+2,0,222,0,63,Readmitted in last 14 days
+1,1,226,0,51,Readmitted in last 14 days
+2,0,135,0,59,Readmitted in last 14 days
+1,0,198,1,46,Readmitted in last 14 days
+2,0,105,1,34,Readmitted in last 14 days
+1,0,234,0,63,Readmitted in last 14 days
+1,1,90,0,86,Readmitted in last 14 days
+1,1,160,0,46,Readmitted in last 14 days
+1,0,124,1,36,Readmitted in last 14 days
+2,0,193,0,40,Readmitted in last 14 days
+2,0,94,0,48,Readmitted in last 14 days
+1,1,76,0,54,Readmitted in last 14 days
+1,1,223,1,62,Readmitted in last 14 days
+1,1,189,0,54,Readmitted in last 14 days
+1,0,245,1,33,Readmitted in last 14 days
+2,1,138,0,32,Readmitted in last 14 days
+2,0,133,1,66,Readmitted in last 14 days
+2,0,164,1,33,Readmitted in last 14 days
+2,0,90,1,92,Readmitted in last 14 days
+1,0,202,0,77,Readmitted in last 14 days
+1,1,113,1,64,Readmitted in last 14 days
+1,1,114,1,33,Readmitted in last 14 days
+1,0,85,1,51,Readmitted in last 14 days
+1,1,258,0,44,Readmitted in last 14 days
+1,0,118,0,62,Readmitted in last 14 days
+1,0,156,0,52,Readmitted in last 14 days
+1,1,105,1,33,Readmitted in last 14 days
+1,0,155,0,68,Readmitted in last 14 days
+1,0,180,0,71,Readmitted in last 14 days
+1,0,243,0,91,Readmitted in last 14 days
+1,0,162,1,48,Readmitted in last 14 days
+1,1,184,1,56,Readmitted in last 14 days
+3,0,109,0,60,Not Readmission
+2,1,92,0,81,Not Readmission
+2,0,118,1,40,Not Readmission
+2,1,140,0,52,Not Readmission
+2,1,234,1,38,Not Readmission
+2,1,167,0,38,Not Readmission
+2,0,218,1,40,Not Readmission
+2,0,153,1,86,Not Readmission
+2,1,252,1,82,Not Readmission
+3,1,221,1,72,Not Readmission
+2,1,113,0,42,Not Readmission
+2,1,226,0,39,Not Readmission
+2,1,137,1,53,Not Readmission
+2,0,169,0,68,Not Readmission
+2,0,66,0,90,Not Readmission
+2,0,123,0,51,Not Readmission
+2,0,163,1,43,Not Readmission
+2,0,114,1,56,Not Readmission
+2,1,141,0,57,Not Readmission
+2,1,210,0,41,Not Readmission
+2,0,136,1,40,Not Readmission
+2,0,135,1,79,Not Readmission
+2,1,254,1,51,Not Readmission
+2,1,74,0,54,Not Readmission
+2,1,221,0,64,Not Readmission
+2,1,173,0,60,Not Readmission
+2,1,79,0,52,Not Readmission
+2,1,69,1,55,Not Readmission
+2,0,247,0,76,Not Readmission
+2,1,145,1,62,Not Readmission
+2,0,213,0,82,Not Readmission
+2,0,82,0,44,Not Readmission
+2,0,92,0,47,Not Readmission
+2,0,204,1,66,Not Readmission
+1,0,127,1,50,Not Readmission
+2,0,259,1,91,Not Readmission
+2,1,125,1,40,Not Readmission
+2,1,256,1,32,Not Readmission
+2,0,75,1,89,Not Readmission
+2,0,104,1,63,Not Readmission
+2,1,80,0,76,Not Readmission
+2,0,129,0,42,Not Readmission
+2,0,222,1,85,Not Readmission
+2,1,98,0,42,Not Readmission
+3,1,199,0,87,Not Readmission
+2,0,165,1,89,Not Readmission
+2,0,74,1,55,Not Readmission
+2,0,217,1,67,Not Readmission
+2,0,227,0,89,Not Readmission
+2,1,187,0,89,Not Readmission
