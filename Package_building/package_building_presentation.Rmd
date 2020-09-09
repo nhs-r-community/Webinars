@@ -1,0 +1,271 @@
+---
+title: "Package Building"
+subtitle: "with RStudio tools"
+author: "Chris Mainey"
+date: "2020/08/30 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+    seal: false
+
+---
+class: title-slide right
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(fig.width=10, fig.height=6, fig.align = "center", dpi=300,
+                      dev.args = list(png = list(type = "cairo")), fig.retina=3) 
+library(Cairo)
+
+```
+
+
+<br><br><br>
+# Why and how to build an R package
+
+#### Chris Mainey - Healthcare Evaluation Data (HED)
+#### Univeristy Hosptials Birmingham NHS FT
+
+<br>
+
+[chris.mainey@uhb.nhs.uk](mailto:chris.mainey@uhb.nhs.uk) `r icon::fa("envelope")` 
+
+[HED.nhs.uk](https://www.hed.nhs.uk) `r icon::fa("globe")` 
+
+[mainard.co.uk](https://www.mainard.co.uk) `r icon::fa("globe")` 
+
+[github.com/chrismainey](https://github.com/chrismainey) `r icon::fa("github")` 
+
+[twitter.com/chrismainey](https://twitter.com/chrismainey) `r icon::fa("twitter")` 
+
+
+---
+
+# Overview
+
++ What is an R package and why might you want to build one
+--
+
++ Functions
+--
+
++ Package basic structures and concepts
+--
+
++ `Roxygen2` documentation and vignettes
+--
+
++ Dependencies
+--
+
++ Build and check
+--
+
++ Extras:
+ + Source control (Git and GitHub)
+ + Unit Tests and code coverage
+ + Releasing to CRAN
+
+--
+
+__We'll look at this practically by building an R package__
+
+
+__References:__
++ [Hadley Wickham, Jenny Bryan's: Building R packages](https://r-pkgs.org/)
++ [`R` official Documentation](https://cran.r-project.org/doc/manuals/R-exts.html#Creating-R-packages)
+
+---
+ 
+# R packages
+
++ Use packages all the time (base, stats, utils). You probably know `tidyverse`, `dplyr`, `ggplot2`.
++ `R` package repository CRAN has 16181 packages at time of writing.
++ Other places like Bioconductor, source pacakges on GitHub etc.
+--
+
+<br><br>
++ __What are they?__
+ + Collections of functions related to certain workflows and task
+ + Up to the author what goes in
+ + Can be depend on other packages or be written
+
+--
+
+
++ __Why use them?__
+ + Don't reinvent the wheel!
+ + Do you know how to do [Insert thing] better than an expert?
+
+--
+
++ __Why build a package?__
+ + You might be the expert!
+ + Share your code with colleagues, or others, and build collaboratively.
+
+---
+
+# But I can't build one...
+
+--
+.left-column[
+__...yes you can!__  You don't need perfect code to share it!  _As you'll see from mine..._
+<br><br>
+
++ You can get much of the background today and by looking online.
++ We need to convert our code to a `function`.
+
++ Functions need to consider generic inputs and outputs.
+
+]
+
+--
+
+.right-column[
+### You have code like this:
+```{r orig, eval=FALSE}
+mydataframe$new_col <-
+  (mydataframe$old_col + 2.5) / 50 
+```
+]
+---
+
+# But I can't build one...
+
+.left-column[
+__...yes you can!__  You don't need perfect code to share it!  _As you'll see from mine..._
+<br><br>
+
++ You can get much of the background today and by looking online.
++ We need to convert our code to a `function`.
+
++ Functions need to consider generic inputs and outputs.
+
+]
+
+
+.right-column[
+### You have code like this:
+```{r orig2, eval=FALSE}
+mydataframe$new_col <-
+  (mydataframe$old_col + 2.5) / 50 
+```
+
+### Turn it into a function:
+```{r asfunc2}
+my_function <- function(col){
+  new_col <- (col + 2.5) / 50 
+  return(new_col)
+}
+
+my_function(97.5)
+```
+]
+
+---
+# Functions
+
+.pull-left[
++ __Function has:__
+ + A name (`my_function`)
+ + An input (`cols`)
+ + A return value (by default, returns the last line, but can be explicit with `return()`)
+
+]
+
+
+---
+# Functions
+
+.pull-left[
++ __Function has:__
+ + A name (`my_function`)
+ + An input (`cols`)
+ + A return value (by default, returns the last line, but can be explicit with `return()`)
+
+<br><br>
+
+It's these functions that we use, and often chain together to build packages.
+We need to:
++ Document them, including help files
++ Tell `R` whether they depend on any other files/packages
+
+]
+
+.pull-right[
+
+```{r asfunc3, eval=FALSE}
+my_function <- function(col){
+  new_col <- col + 2.5 / 50 
+  return(new_col)
+}
+```
+]
+
+---
+
+## Structure of a package
+
+Can contain one or many functions.  The parts it requires are:
+
++ DESCRIPTION - A file with meta data about package, authors etc. Includes dependencies
++ NAMESPACE - A short-hand file so are can undestand what functions and dependencies package has
++ Function(s) - Files with `R` functions, saved in a directro called `R`
++ Help files - Text describing functions.  We'll generate this with `Roxygen2`
+
+
+Optional:
++ Vignette - Worked examples of using your functions.  I think all good packages should have at least one.
++ Unit tests - Automated tests help to detect errors in your code when working on a package.
+
+---
+
+# Process for today:
+
++ Use Rstudio to set up a new project with an 'R package template'
++ Write our functions.
++ Insert a 'Roxygen Skeleton' ('Code' menu), and fill in
++ Build our package, use CRAN checks
++ Write a brief unit test
++ Commit this all to GitHub.
+
++  We will use `devtools` and `usethis` in many places, as they set up many of the elements for you.
+
+---
+# Dependencies
+
++ Description file can specify:
+ + `Imports` - list packages that are ___required___ to use your code.
+ + `Suggests` - A courtesy to your users, packages that are not required but help (e.g. used in vignette).  Don't need to use this with a local file 
+
+--
+ 
+You no longer need `Depends` since NAMESPACE files are used, and `LinkingTo` can be used to link to C++ or other files. `Enhanced` can be used to indicate your functions enhance another package.
+
+--
+
+Refer to Jim Hester's post: https://www.tidyverse.org/blog/2019/05/itdepends/
+
+
+__Beware of tidyverse dependencies!__  Hadley's advice:  
+
+>Because the tidyverse is a set of packages designed for interactive data analysis, this is, in short, a bad idea. The tidyverse package includes a substantial number of direct and indirect dependencies (79 packages, as of this writing), many of which are likely unnecessary for the purposes of your package. Furthermore, the CRAN maintainers frown upon depending on it, which can cause hassle for you down the line.
+
+
+---
+# Extras
+
+### Source control:
+ + Source control is important in software development, allowing you to track changes and 'rollback'
+ + Git is commonly used, but not only option. With Git you have a local repository, and you can sync to a 'remote' like GitHub.
+ + You or other users can make 'branches' to build functions before merging them together.
+
+### Unit tests
++ Using `testthat` package, we build test scripts, and use a control script called 'testthat'.
++ Place them in folder called 'tests'.

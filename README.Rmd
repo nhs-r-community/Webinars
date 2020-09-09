@@ -30,8 +30,7 @@ Each folder contains a session:
 | 17/06/2020 | Advanced Modelling Supervised ML  | [Gary Hutson](https://github.com/statsgary)    | [NHS_R_Advanced_Modelling_Supervised_ML](https://github.com/nhs-r-community/Webinars/tree/master/NHS_R_Advanced_Modelling_Supervised_ML)  | [Watch](https://nhsrcommunity.com/learn-r/workshops/advanced-modelling-supervised-ml/) |
 | 15/07/2020 | R Task Automation                 | Daria Cosentino                                | [R_Task_Automation](https://github.com/nhs-r-community/Webinars/tree/master/R_Task_Automation) | [Watch](https://nhsrcommunity.com/learn-r/workshops/task-automation-with-r/) |
 | 19/08/2020 |                                   |                |                                                                                                                   | |
-| 16/09/2020 | Why and how to build an R package | [Chris Mainey](https://github.com/chrismainey) |                                                                                                                   | |
-| 21/10/2020 |                                   |                |                                                                                                                   | |
+| 16/09/2020 | Why and how to build an R package | [Chris Mainey](https://github.com/chrismainey) |       [Package_building](https://github.com/nhs-r-community/Webinars/tree/master/Package_building) |                |                                                                                                                   | |
 | 18/11/2020 |                                   |                |                                                                                                                   | |
 
 # Accessing Material
