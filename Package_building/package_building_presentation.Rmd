@@ -50,34 +50,23 @@ library(Cairo)
 # Overview
 
 + What is an R package and why might you want to build one
---
-
 + Functions
---
-
 + Package basic structures and concepts
---
-
 + `Roxygen2` documentation and vignettes
---
-
 + Dependencies
---
-
 + Build and check
 --
 
 + Extras:
  + Source control (Git and GitHub)
- + Unit Tests and code coverage
+ + Unit tests and code coverage
  + Releasing to CRAN
-
---
 
 __We'll look at this practically by building an R package__
 
 
 __References:__
+
 + [Hadley Wickham, Jenny Bryan's: Building R packages](https://r-pkgs.org/)
 + [`R` official Documentation](https://cran.r-project.org/doc/manuals/R-exts.html#Creating-R-packages)
 
@@ -92,21 +81,21 @@ __References:__
 
 <br><br>
 + __What are they?__
- + Collections of functions related to certain workflows and task
+ + Collections of functions related to certain workflows and tasks
  + Up to the author what goes in
- + Can be depend on other packages or be written
+ + Can be depend on other packages or be written from scratch
 
 --
 
 
 + __Why use them?__
  + Don't reinvent the wheel!
- + Do you know how to do [Insert thing] better than an expert?
+ + Do you know how to do _[Insert thing]_ better than a topic expert?
 
 --
 
 + __Why build a package?__
- + You might be the expert!
+ + You might be the topic expert!
  + Share your code with colleagues, or others, and build collaboratively.
 
 ---
@@ -168,17 +157,6 @@ my_function(97.5)
 ```
 ]
 
----
-# Functions
-
-.pull-left[
-+ __Function has:__
- + A name (`my_function`)
- + An input (`cols`)
- + A return value (by default, returns the last line, but can be explicit with `return()`)
-
-]
-
 
 ---
 # Functions
@@ -188,13 +166,6 @@ my_function(97.5)
  + A name (`my_function`)
  + An input (`cols`)
  + A return value (by default, returns the last line, but can be explicit with `return()`)
-
-<br><br>
-
-It's these functions that we use, and often chain together to build packages.
-We need to:
-+ Document them, including help files
-+ Tell `R` whether they depend on any other files/packages
 
 ]
 
@@ -208,40 +179,60 @@ my_function <- function(col){
 ```
 ]
 
+
+
+---
+# Functions
+
+.pull-left[
++ __Function has:__
+ + A name (`my_function`)
+ + An input (`cols`)
+ + A return value (by default, returns the last line, but can be explicit with `return()`)
+]
+
+.pull-right[
+
+```{r asfunc4, eval=FALSE}
+my_function <- function(col){
+  new_col <- col + 2.5 / 50 
+  return(new_col)
+}
+```
+]
+
+<br><br>
+
+It's these functions that we use, and often chain together to build packages.
+We need to:
++ Document them, including help files for users.
++ Tell `R` whether they depend on any other files/packages.
++ Better packages will condiser error handling and how best to return values.
+
+
 ---
 
 ## Structure of a package
 
 Can contain one or many functions.  The parts it requires are:
 
-+ DESCRIPTION - A file with meta data about package, authors etc. Includes dependencies
-+ NAMESPACE - A short-hand file so are can undestand what functions and dependencies package has
-+ Function(s) - Files with `R` functions, saved in a directro called `R`
-+ Help files - Text describing functions.  We'll generate this with `Roxygen2`
++ __DESCRIPTION__ - A file with meta data about package, authors etc. Includes a list dependencies
++ __NAMESPACE__ - A short-hand file so `R` can undestand what functions and dependencies to import
++ __Function(s)__ - Files with `R` functions, saved in a directory called `R`
++ __Help files__ - Text describing functions.  These are written in syntax similar to latex, but it's common to generate them using `roxygen2` - a package documentation tool.
 
 
 Optional:
-+ Vignette - Worked examples of using your functions.  I think all good packages should have at least one.
-+ Unit tests - Automated tests help to detect errors in your code when working on a package.
++ __Vignette__ - Worked examples of using your functions.  I think all good packages should have at least one.  Again, written in same format as help files, or Rmarkdown.
++ __Unit tests__ - Automated tests help to detect errors in your code when working on a package.
 
 ---
+## Dependencies
 
-# Process for today:
-
-+ Use Rstudio to set up a new project with an 'R package template'
-+ Write our functions.
-+ Insert a 'Roxygen Skeleton' ('Code' menu), and fill in
-+ Build our package, use CRAN checks
-+ Write a brief unit test
-+ Commit this all to GitHub.
-
-+  We will use `devtools` and `usethis` in many places, as they set up many of the elements for you.
-
----
-# Dependencies
+If you package requires other packages, you need to convey that so they are installed.
 
 + Description file can specify:
- + `Imports` - list packages that are ___required___ to use your code.
+ + `Imports` - list packages that are ___required___ to use your code (added to NAMESPACE).
  + `Suggests` - A courtesy to your users, packages that are not required but help (e.g. used in vignette).  Don't need to use this with a local file 
 
 --
@@ -253,19 +244,113 @@ You no longer need `Depends` since NAMESPACE files are used, and `LinkingTo` can
 Refer to Jim Hester's post: https://www.tidyverse.org/blog/2019/05/itdepends/
 
 
-__Beware of tidyverse dependencies!__  Hadley's advice:  
+__Beware of tidyverse dependencies!__  Hadley's Wickham's advice:  
 
 >Because the tidyverse is a set of packages designed for interactive data analysis, this is, in short, a bad idea. The tidyverse package includes a substantial number of direct and indirect dependencies (79 packages, as of this writing), many of which are likely unnecessary for the purposes of your package. Furthermore, the CRAN maintainers frown upon depending on it, which can cause hassle for you down the line.
 
 
 ---
-# Extras
+# Extras (1)
 
 ### Source control:
- + Source control is important in software development, allowing you to track changes and 'rollback'
- + Git is commonly used, but not only option. With Git you have a local repository, and you can sync to a 'remote' like GitHub.
+ + Source control is important in software development, allowing you to track changes and 'rollback'.
+ + Git is common, but not only option. With Git you have a local repository, and can sync to a 'remote' like GitHub.
  + You or other users can make 'branches' to build functions before merging them together.
+ + Happy Git with `R` https://happygitwithr.com/
+ + GitHub automatically renders README.md when you land on it.
 
-### Unit tests
-+ Using `testthat` package, we build test scripts, and use a control script called 'testthat'.
-+ Place them in folder called 'tests'.
+--
+
+### Unit tests:
++ Use `testthat` package, use a control script called 'testthat', in a folder called 'tests'.
++ Sub-folder called 'test_that' containing test scripts.
++ See `testthat` vignettes for more details.
++ Can be combined with 'Code coverage' e.g. `covr` package.
+
+---
+
+# Extras (2)
+
+### Continuous integration (CI)
++ When building larger packages collaboratively, CI builds packages after each push.
++ Recommend GitHub actions, but Travis-CI is also common.
+
+### `pkgdown`
++ A extension builds a package website from your helpfiles, README, helpfiles, and metadata.
++ Can then be hosted anywhere, but GitHub pages is common.
++ Can be built from CI systems
+
+--
+
+## Trust the `usethis` package!
+
+---
+# Lets build a package!
+
++ Use Rstudio to set up a new project with an 'R package template'
++ Write our functions.
++ Insert a 'Roxygen Skeleton' ('Code' menu), and fill in
++ Build our package, use CRAN checks
++ Write a brief unit test
++ Commit this all to GitHub.
+
++  We will use Rstudio, `devtools`, `usethis` and `roxygen2` in many places, as they set up the elements for you.
++ You need [Rtools](https://cran.r-project.org/bin/windows/Rtools/) on Windows!
+
+
+___Here's one I prepared earlier:___
+
+https://github.com/chrismainey/brilliant2
+
+
+---
+# Releasing to CRAN
+
++ CRAN is the most popular repository for packages.  It has clear rules, and moderated by wonderful volunteers.
+
+--
+
++ Rules around release, and package must pass CRAN checks and build on Windows, macOS and various Linux distros.
+
+--
+
++ CI can help with builds, but also use Win-builder and R-Hub, through `devtools`.
+
+--
+
++ Should include a 'NEWS' file and 'cran_comments' describing package, changes, and any errors in builds.
+
+--
+
++ Follow all the steps in `devtools::release()`
+
+
+---
+class: middle
+
+# Look at an existing package:
+https://github.com/chrismainey/FunnelPlotR
+
+---
+# Summary
+
++ Packages are wasy to make functions portable
+
++ Help you share code, collaborate and make code available to non-experts
+
++ Rstudio gives you package templates, and integrated with build, check and other tools
+
++ Metadata is saved in DESCRIPTION file
+
++ NAMESPACE contains import/dependecy details, generated in build in `RStudio`/`devtools`/`roxygen2`
+
++ `R` functions saved in R folder, document using `roxygen2`
+
++ Unit test check code is wokring properly (`testthat` package)
+
++ Build (using RTools in Windows). If releasing to CRAN, use checks with `--as-cran` option.
+
++ Can build to binary and install from zip
+
++ GitHub, CI, codecov and `pkgdown` can all help with process
+

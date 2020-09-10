@@ -80,6 +80,7 @@ li{
 }
 .remark-code, .remark-inline-code {
   font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;
+  background-color: #F8F8F8;
 }
 .remark-code {
   font-size: 0.8em;
@@ -98,7 +99,7 @@ li{
 }
 strong{color:#23395b;}
     a, a > code {
-      color: #23395b;
+      color:#0077CC;
         text-decoration: none;
     }
   
