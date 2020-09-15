@@ -30,7 +30,7 @@ library(Cairo)
 # Why and how to build an R package
 
 #### Chris Mainey - Healthcare Evaluation Data (HED)
-#### Univeristy Hosptials Birmingham NHS FT
+#### University Hospitals Birmingham NHS FT
 
 <br>
 
@@ -76,7 +76,7 @@ __References:__
 
 + Use packages all the time (base, stats, utils). You probably know `tidyverse`, `dplyr`, `ggplot2`.
 + `R` package repository CRAN has 16181 packages at time of writing.
-+ Other places like Bioconductor, source pacakges on GitHub etc.
++ Other places like Bioconductor, source packages on GitHub etc.
 --
 
 <br><br>
@@ -106,7 +106,7 @@ __...yes you can!__  You don't need perfect code to share it!  _As you'll see fr
 <br><br>
 
 + You can get much of the background today and by looking online.
-+ You will get it worng a lot.  That's part of the process.
++ You will get it wrong a lot.  That's part of the process.
 + We need our code to be in a format where it can be run by others
 + We need to convert our code to a `function`.
 ]
@@ -118,6 +118,7 @@ __...yes you can!__  You don't need perfect code to share it!  _As you'll see fr
 # Functions
 
 Functions have a structure that considers generic inputs and outputs, and performs something on them in between.
+
 _(bad explanation, but stay with me...)_
 
 --
@@ -194,7 +195,7 @@ It's these functions that we use, and often chain together to build packages.
 We need to:
 + Document them, including help files for users.
 + Tell `R` whether they depend on any other files/packages.
-+ Better packages will condiser error handling and how best to return values.
++ Better packages will consider error handling and how best to return values.
 
 
 ---
@@ -204,7 +205,7 @@ We need to:
 Can contain one or many functions.  The parts it requires are:
 
 + __DESCRIPTION__ - A file with meta data about package, authors etc. Includes a list dependencies
-+ __NAMESPACE__ - A short-hand file so `R` can undestand what functions and dependencies to import
++ __NAMESPACE__ - A short-hand file so `R` can understand what functions and dependencies to import
 + __Function(s)__ - Files with `R` functions, saved in a directory called `R`
 + __Help files__ - Text describing functions.  These are written in syntax similar to latex, but it's common to generate them using `roxygen2` - a package documentation tool.
 
@@ -263,7 +264,7 @@ __Beware of tidyverse dependencies!__  Hadley's Wickham's advice:
 + Recommend GitHub actions, but Travis-CI is also common.
 
 ### `pkgdown`
-+ A extension builds a package website from your helpfiles, README, helpfiles, and metadata.
++ A extension builds a package website from your helpfiles, README, help files, and metadata.
 + Can then be hosted anywhere, but GitHub pages is common.
 + Can be built from CI systems
 
@@ -321,7 +322,7 @@ https://github.com/chrismainey/FunnelPlotR
 ---
 # Summary
 
-+ Packages are wasy to make functions portable
++ Packages are ways to make functions portable
 
 + Help you share code, collaborate and make code available to non-experts
 
@@ -329,11 +330,11 @@ https://github.com/chrismainey/FunnelPlotR
 
 + Metadata is saved in DESCRIPTION file
 
-+ NAMESPACE contains import/dependecy details, generated in build in `RStudio`/`devtools`/`roxygen2`
++ NAMESPACE contains import/dependency details, generated in build in `RStudio`/`devtools`/`roxygen2`
 
 + `R` functions saved in R folder, document using `roxygen2`
 
-+ Unit test check code is wokring properly (`testthat` package)
++ Unit test check code is working properly (`testthat` package)
 
 + Build (using RTools in Windows). If releasing to CRAN, use checks with `--as-cran` option.
 
