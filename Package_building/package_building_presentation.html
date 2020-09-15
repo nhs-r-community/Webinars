@@ -88,55 +88,41 @@ __References:__
  + Share your code with colleagues, or others, and build collaboratively.
 
 ---
-
 # But I can't build one...
 
---
-.left-column[
+.pull-left[
 __...yes you can!__  You don't need perfect code to share it!  _As you'll see from mine..._
 &lt;br&gt;&lt;br&gt;
 
 + You can get much of the background today and by looking online.
++ You will get it worng a lot.  That's part of the process.
++ We need our code to be in a format where it can be run by others
 + We need to convert our code to a `function`.
-
-+ Functions need to consider generic inputs and outputs.
-
 ]
 
---
-
-.right-column[
-### You have code like this:
-
-```r
-mydataframe$new_col &lt;-
-  (mydataframe$old_col + 2.5) / 50 
-```
+.pull-right[
+![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/code_hero.jpg)
 ]
 ---
+# Functions
 
-# But I can't build one...
+Functions have a structure that considers generic inputs and outputs, and performs something on them in between.
+_(bad explanation, but stay with me...)_
 
-.left-column[
-__...yes you can!__  You don't need perfect code to share it!  _As you'll see from mine..._
-&lt;br&gt;&lt;br&gt;
-
-+ You can get much of the background today and by looking online.
-+ We need to convert our code to a `function`.
-
-+ Functions need to consider generic inputs and outputs.
-
-]
+--
 
 
-.right-column[
+
+.pull-left[
 ### You have code like this:
 
 ```r
 mydataframe$new_col &lt;-
   (mydataframe$old_col + 2.5) / 50 
 ```
+]
 
+.pull-right[
 ### Turn it into a function:
 
 ```r
