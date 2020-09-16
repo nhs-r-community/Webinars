@@ -44,6 +44,9 @@ library(Cairo)
 
 [twitter.com/chrismainey](https://twitter.com/chrismainey) `r icon::fa("twitter")` 
 
+.footnote[
+Background image by Leone Venter: https://unsplash.com/@fempreneurstyledstock
+]
 
 ---
 
@@ -107,41 +110,61 @@ __...yes you can!__  You don't need perfect code to share it!  _As you'll see fr
 
 + You can get much of the background today and by looking online.
 + You will get it wrong a lot.  That's part of the process.
-+ We need our code to be in a format where it can be run by others
+
+<br>
+
+Our first step is to convert our code to a format that can be run by others
 + We need to convert our code to a `function`.
 ]
 
+
 .pull-right[
-![](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/code_hero.jpg)
+
+<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/code_hero.jpg" width="90%">
+
+.footnote[
+Artwork by @allison_horst: https://github.com/allisonhorst/stats-illustrations
 ]
+
+]
+
+
 ---
 # Functions
 
 Functions have a structure that considers generic inputs and outputs, and performs something on them in between.
-
 _(bad explanation, but stay with me...)_
+
+
+```{r colsetup}
+mydataframe <- data.frame(id=seq(3), old_col = c(97.5, 100, 147.5))
+```
 
 --
 
-
-
 .pull-left[
-### You have code like this:
-```{r orig2, eval=FALSE}
+#### You have code like this:
+```{r orig2}
 mydataframe$new_col <-
   (mydataframe$old_col + 2.5) / 50 
+
+mydataframe
 ```
 ]
 
+--
+
 .pull-right[
-### Turn it into a function:
+#### Turn it into a function:
 ```{r asfunc2}
 my_function <- function(col){
-  new_col <- (col + 2.5) / 50 
-  return(new_col)
+  rtn <- (col + 2.5) / 50 
+  return(rtn)
 }
 
-my_function(97.5)
+mydataframe$new_col2 <- my_function(mydataframe$old_col)
+
+mydataframe
 ```
 ]
 
