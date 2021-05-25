@@ -1,0 +1,197 @@
+install.packages("plotly")
+devtools::install_github("ropensci/plotly")
+
+library(plotly)
+library(tidyverse)
+
+fig <- mtcars %>%   
+  plot_ly(x = ~mpg, y = ~disp)
+fig
+
+# Three main parts of plotly structure:
+# plot_ly()
+# layout()
+# add_trace() (add_*())
+
+# Lists all add_* functions
+stringr::str_subset(objects("package:plotly"), pattern ="^add_")
+
+fig <- mtcars %>%    
+  plot_ly(x = ~mpg, y = ~disp) %>%  
+  layout(     
+    title = "Miles per Gallon vs Displacement",  
+    xaxis = list(title = "Miles per Gallon",    
+                 range = c(10, 35)),   
+    yaxis = list(title = "Displacement",   
+                 range = c(50, 500))  
+    )
+fig
+
+fig <- mtcars %>%  
+  plot_ly(x = ~factor(cyl), y = ~mpg, type = "scatter", name = "Scatter") %>% 
+  add_boxplot(name = "Boxplot") 
+fig
+
+
+airquality %>%
+  plot_ly(x = ~Temp, y = ~Ozone, type = "scatter") %>% 
+  layout(title = "Temperature vs Ozone",
+         xaxis = list(title = "Temperature"),
+         yaxis = list(title = "Ozone"))
+
+# OR WITH add_trace:
+
+airquality %>%
+  plot_ly(x = ~Temp) %>%
+  add_trace(y = ~Ozone, type = "scatter") %>%
+  layout(title = "Temperature vs Ozone",
+         xaxis = list(title = "Temperature"),
+         yaxis = list(title = "Ozone"))
+
+# Custom control - range slider:
+
+x = seq(-2*pi, 2*pi, by = 1/1000) 
+df <- data.frame(x = x, y = sin(x),    
+                 z = cos(x)) 
+
+fig <- df %>%  
+  plot_ly(x = ~x) %>%  
+  add_lines(y = ~y, name = "Sine") %>%   
+  add_lines(y = ~z, name = "Cosine") %>%  
+  layout(   
+    title = "Sine and Cosine",   
+    xaxis = list(rangeslider = list(type = "x")) 
+    ) 
+fig
+
+# GEOSPACIAL DATA
+
+df <- read.csv(  
+  'https://raw.githubusercontent.com/plotly/datasets/master/2015_06_30_precipitation.csv'
+)
+df %>% head()
+
+# Initial plot
+fig <- df %>% 
+  plot_geo(lat = ~Lat, lon = ~Lon)
+fig
+
+# Add precipitation values
+fig <- fig %>%   
+  add_markers(     
+    text = ~paste("Precipitation:", Globvalue)   
+    ) 
+fig
+
+# Customise markers further
+fig <- df %>%  
+  plot_geo(lat = ~Lat, lon = ~Lon) %>% 
+  add_markers(    
+    text = ~paste("Precipitation:", Globvalue),  
+    color = ~Globvalue,     
+    symbol = I("square"),     
+    size = I(8),     
+    hoverinfo = "text",   
+    opacity = I(0.8)
+    ) 
+fig
+
+# Add titles
+fig <- fig %>%  
+  colorbar(title = "Precipitation June 2015") %>%   
+  layout(   
+    title = 'Precipitation levels across America' 
+    ) 
+fig
+
+# Further customisation
+g <- list(  
+  scope = 'usa',   
+  projection = list(type = 'albers usa'),  
+  showland = TRUE,  
+  landcolor = toRGB("gray95"),  
+  subunitcolor = toRGB("gray85"), 
+  countrycolor = toRGB("gray85"),  
+  countrywidth = 0.5,   
+  subunitwidth = 0.5 
+  ) 
+
+fig <- fig %>%  
+  layout(  
+    geo = g  
+    ) 
+fig
+
+
+# INTEGRATION WITH GGPLOT2
+
+set.seed(23) 
+df <- data.frame(x = rnorm(1000)) 
+
+# ggplot object
+p <- df %>%  
+  ggplot(aes(x = x)) + 
+  geom_histogram(aes(y = ..density..), colour = "gray", fill = "white") +  
+  geom_density(fill = "orange", alpha = 0.2) 
+
+# Create interactive plot 
+ggplotly(p) # or run ggplotly() to transform previous plot
+
+
+car_copy <- select(mtcars, -cyl) 
+
+# ggplot object 
+p <- ggplot() +   
+  geom_point(data = car_copy, aes(x = mpg, y = disp),   
+             color = "lightgrey") + 
+  geom_point(data = mtcars, aes(x = mpg, y = disp)) +  
+  facet_grid( ~ cyl) +   
+  ggtitle("MPG vs Displacement By Number of Cylinders") +  
+  xlab("Miles per Gallon") +  
+  ylab("Displacement") 
+
+# Create interactive plot 
+ggplotly(p)
+
+# Assign the interactive plot using `ggplotly` to
+# a variable
+fig <- ggplotly(p)
+fig
+
+# Now we can pipe this object to set other customisations, e.g.
+fig %>% 
+  layout(
+    yaxis = list(range = c(100, 400))
+  )
+fig
+
+# INTEGRATION WITH SHINY
+
+library(shiny)
+
+ui <- fluidPage(
+  textOutput("text"),
+  
+  # plotly output widget
+  plotlyOutput("plot")
+)
+
+server <- function(input, output){
+  output$text <- renderText({
+    "This is an interative plot within a Shiny app:"
+  })
+  
+  # Render interactive plotly chart
+  output$plot <- renderPlotly({
+    mtcars %>% 
+      plot_ly(x = ~factor(cyl), y = ~mpg, type = "scatter", name = "Scatter") %>% 
+      add_boxplot(name = "Boxplot")
+  })
+}
+
+shinyApp(ui = ui, server = server)
+
+
+
+
+
