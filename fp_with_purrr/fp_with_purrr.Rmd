@@ -782,7 +782,7 @@ files %>%
 
 .small[
 for an explanation of what the regular expression is doing above, see
-[here](https://regexr.com/54m5f)
+[details of example regular expression](https://regexr.com/54m5f)
 ]
 
 ---
