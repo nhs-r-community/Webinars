@@ -45,6 +45,6 @@ selecting ‘Download ZIP’ instead.
 
 # Contributor Code of Conduct
 
-Contributors to this repository agree to abide by the NHS-R community
+Contributors to this repository consent to abide by the NHS-R community
 Code of Conduct, available in this repository on this
-[link](https://github.com/nhs-r-community/Webinars/blob/master/code_of_conduct.md).
+[page](https://github.com/nhs-r-community/Webinars/blob/master/code_of_conduct.md).
