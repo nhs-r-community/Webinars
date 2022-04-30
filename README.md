@@ -34,17 +34,16 @@ Each folder contains a session:
 
 # Accessing Material
 
-If you are used to using Git and GitHub, you can clone this repository
+- If you are familiar with Git and GitHub, you can clone this repository
 by clicking on the green button.
 
-If you are unfamiliar with Git and GitHub, you can download zip files
+- If you are unfamiliar with Git and GitHub, you can download zip files
 instead of cloning the repository, by clicking on the green button and
-selecting ‘Download ZIP’ instead.
+selecting **Download ZIP** instead.
 
 <br>
 
 # Contributor Code of Conduct
 
-Contributors to this repository agree to abide by the NHS-R community
-Code of Conduct, available in this repository on this
-[link](https://github.com/nhs-r-community/Webinars/blob/master/code_of_conduct.md).
+Contributors to this repository agree to abide by the [NHS-R community
+Code of Conduct](https://github.com/nhs-r-community/Webinars/blob/master/code_of_conduct.md).
